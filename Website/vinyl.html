@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Vinyl</title>
+    <script
+      src="https://code.highcharts.com/highcharts.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://code.highcharts.com/modules/data.js"
+      type="text/javascript"
+    ></script>
+  </head>
+  <body>
+    <figure id="container" style="width: 30%; height: 400px"></figure>
+  </body>
+  <script>
+    Highcharts.chart("container", {
+      tooltip: {
+        enabled: false,
+      },
+      chart: {
+        type: "spline",
+      },
+      data: {
+        csvURL: "../Data/RIAA Revenue Chart 1973-2021 Grouped v3 bn round3.csv",
+      },
+      title: {
+        text: "",
+      },
+      yAxis: {
+        title: {
+          text: "",
+        },
+        labels: {
+          format: "${value} bn",
+        },
+      },
+      plotOptions: {
+        series: {
+          marker: {
+            states: {
+              hover: {
+                enabled: false,
+              },
+            },
+          },
+          states: {
+            inactive: {
+              opacity: 1,
+            },
+            hover: {
+                        enabled: false
+                    }
+          },
+        },
+      },
+    });
+  </script>
+</html>

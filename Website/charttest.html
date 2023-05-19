@@ -8,11 +8,11 @@
 </head>
 <body>
     <!-- Create a container for the chart -->
-    <div id="chartContainer" style="width: 100%; height: 800px;"></div>
+    <figure id="chartContainer" style="width: 100%; height: 800px;"></figure>
   
     <script>
       // Parse the .csv file (example using fetch API)
-      fetch('RIAA Revenue Chart 1973-2021 Grouped v2.csv')
+      fetch('/data/RIAA Revenue Chart 1973-2021 Grouped v2 bn round3.csv')
         .then(response => response.text())
         .then(csvData => {
           // Convert the CSV data to a usable format (example using PapaParse)
@@ -22,13 +22,15 @@
           const formats = Array.from(new Set(parsedData.map(item => item.format)));
   
           // Prepare series data for each format
-          const seriesData = formats.map(format => {
+          const seriesData = formats.map((format, index) => {
             const data = parsedData
               .filter(item => item.format === format)
               .map(item => [parseInt(item.year), parseFloat(item.revenue)]);
             return {
               name: format,
-              data: data.sort((a, b) => a[0] - b[0]) // Sort data by year
+              data: data.sort((a, b) => a[0] - b[0]), // Sort data by year
+              color: getColorByIndex(index), // Custom color based on index
+              dashStyle: getDashStyleByIndex(index) // Custom dash style based on index
             };
           });
   
@@ -45,42 +47,38 @@
                 text: 'Year'
               }
             },
-            yAxis: [{
-                labels: {
-                    format: '${value} m',
-                    style: {
-                        color: Highcharts.getOptions().colors[2]
-                    }
-                },
-                title: {
-                    text: 'Revenue',
-                    style: {
-                        color: Highcharts.getOptions().colors[2]
-                    }
-                },
-            series: seriesData
+            yAxis: {
+              labels: {
+                  format: '${value} bn',
+                  style: {
+                      color: Highcharts.getOptions().colors[1]
+                  }
+              },
+              title: {
+                  text: 'Revenue',
+                  style: {
+                      color: Highcharts.getOptions().colors[1]
+                  }
+              }
             },
-            { // Secondary yAxis
-                gridLineWidth: 0,
-                title: {
-                    text: 'Loudness',
-                    style: {
-                        color: Highcharts.getOptions().colors[0]
-                    }
-                },
-                labels: {
-                    format: '{value} dbFS',
-                    style: {
-                        color: Highcharts.getOptions().colors[0]
-                    }
-                },
-                opposite: true
-            }]
-        });
+            series: seriesData
+          });
         })
         .catch(error => {
           console.error('Error:', error);
         });
+
+      // Helper function to get custom color by index
+      function getColorByIndex(index) {
+        const colors = ['red', 'grey', 'grey', 'grey', 'grey']; // Add more colors if needed
+        return colors[index % colors.length];
+      }
+
+      // Helper function to get custom dash style by index
+      function getDashStyleByIndex(index) {
+        const dashStyles = ['Solid', 'ShortDash', 'ShortDot', 'LongDash', 'DashDot']; // Add more dash styles if needed
+        return dashStyles[index % dashStyles.length];
+      }
     </script>
   </body>
 </html>
