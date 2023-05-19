@@ -35,3 +35,8 @@
 .highcharts-markers {
     opacity: 0;
 }
+
+.highcharts-graph {
+    fill: none;
+    stroke-width: 1px;
+}
