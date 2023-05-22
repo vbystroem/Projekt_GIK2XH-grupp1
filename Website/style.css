@@ -2,7 +2,11 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
 
+body {
+    margin: 2vw;
+    color: #e0e0e0;
 }
 
 .landing_chart {
@@ -44,7 +48,152 @@
 
 .chart_drawing {
     display: flex;
-    margin: 1vw;
+}
+
+.topinfo-c {
+    margin-left: 1vw;
+    font-family: 'Space Mono';
+    color: #0009b5;
+}
+
+.btn_r-c {
+    fill: #0009b5;
+}
+
+.btn-c {
+    padding: 0.2rem;
+    stroke: #0009b5;
+}
+
+.topinfo-cd {
+    margin-left: 1vw;
+    font-family: 'Space Mono';
+    color: #c1006f;
+}
+
+.btn_r-cd {
+    fill: #c1006f;
+}
+
+.btn-cd {
+    padding: 0.2rem;
+    stroke: #c1006f;
+}
+
+.topinfo-v {
+    margin-left: 1vw;
+    font-family: 'Space Mono';
+    color: #a84800;
+}
+
+.btn_r-v {
+    fill: #a84800;
+}
+
+.btn-v {
+    padding: 0.2rem;
+    stroke: #a84800;
+}
+
+.topinfo-d {
+    margin-left: 1vw;
+    font-family: 'Space Mono';
+    color: #3e0079;
+}
+
+.btn_r-d {
+    fill: #3e0079;
+}
+
+.btn-d {
+    padding: 0.2rem;
+    stroke: #3e0079;
+}
+
+.topinfo-s {
+    margin-left: 1vw;
+    font-family: 'Space Mono';
+    color: #137000;
+}
+
+.btn_r-s {
+    fill: #137000;
+}
+
+.btn-s {
+    padding: 0.2rem;
+    stroke: #137000;
+}
+
+.nav_btns {
+    height: 2rem;
+    width: auto;
+    padding: 0.2rem;
+}
+
+.bckfwd {
+    margin-left: 1vw;
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+}
+
+  a { 
+    text-decoration: none;
+}
+
+h1 {
+    margin-bottom: 2rem;
+    font-size: 3rem;
+}
+
+h2 {
+    font-weight: 300;
+}
+
+b {
+    font-weight: 600;
+}
+
+.emptyline {
+    line-height: 100%;
+}
+
+.article {
+    font-family: 'Space Mono';
+    color: #000;
+    display: flex;
+    justify-content: center;
+}
+
+.article h1 {
+    font-size: 4rem;
+    width: 60%;
+    text-align: center;
+    line-height: 5rem;
+}
+
+.divider {
+    display: flex;
+    justify-content: center;
+}
+
+hr {
+    border-width: 1px;
+    margin: 3rem 0 3rem 0;
+    opacity: 20%;
+    width: 50%;
+    border-color: #dddddd;
+    text-align: center;
+}
+
+#doublearrow {
+    writing-mode: vertical-lr;
+    margin: 2rem 0 0 1vw;
+    line-height: 0;
+    font-weight: 400;
 }
 
 
