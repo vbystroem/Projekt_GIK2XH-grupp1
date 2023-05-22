@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CD history</title>
+    <title>Download history</title>
     <script
       src="https://code.highcharts.com/highcharts.js"
       type="text/javascript"
@@ -17,12 +17,13 @@
       src="https://code.highcharts.com/modules/accessibility.js"
       type="text/javascript"
     ></script>
-    <link rel="stylesheet" href="highcharts.css" />
+<!--     <link rel="stylesheet" href="highcharts.css" /> -->
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css?family=Space Mono" />
   </head>
   <body>
     <div class="bckfwd">
+    
       <a href="cd.html">
         <button>
           <svg
@@ -138,7 +139,7 @@
     </div>
     <div class="chart_drawing">
       <img class="svg" src="../images/sameheight-downloads.svg" alt="" />
-      <div id="container" style="width: 25vw; height: 30vh"></div>
+      <div id="container-chart" style="width: 25vw; height: 30vh"></div>
     </div>
     <div class="topinfo-d">
       <h1>Nedladdning</h1>
@@ -146,48 +147,68 @@
       <p class="emptyline"><br /></p>
       <h2><b>Typ:</b><br />Digital</h2>
       <p class="emptyline"><br /></p>
-      <h2><b>Mest sålda album:</b><br />Adele – 21</h2>
-      <h1 id="doublearrow">»</h1>
+      <h2><b>Mest sålda album under formatets starkaste år (2012):</b><br />Adele – 21</h2>
+      <a class="scrollink" id="doublearrow" href="#arttitle">»</a>
     </div>
     <div class="divider"><hr></div>
     <div class="article">
-        <h1>Den stora kraschen</h1>
+        <h1 id="arttitle">Varför kraschade musikbranchen efter nedladdningen blev mainstream?</h1>
     </div>
   </body>
   <script class="minichart">
-    Highcharts.chart("container", {
-      chart: {
-        type: "spline",
-        events: {
-          load: function () {
-            this.reflow();
-          },
+    Highcharts.chart('container-chart', {
+
+      data: {
+        csvURL: '../data/RIAA Revenue Chart 1973-2021 Grouped v3 bn round3.csv',
+        beforeParse: function (csv) {
+          return csv.replace(/\n\n/g, '\n');
+        }
+      },
+
+      title: {
+        text: '',
+      },
+
+      subtitle: {
+        text: '',
+      },
+
+      xAxis: {
+        visible: true,
+        lineWidth: 0,
+        tickWidth: 0,
+        labels: {
+          enabled: false,
         },
       },
-      colors: ["#dddddd", "#dddddd", "#3e0079", "#dddddd", "#dddddd"],
-      data: {
-        csvURL: "../Data/RIAA Revenue Chart 1973-2021 Grouped v3 bn round3.csv",
-      },
-      legend: {
-        enabled: false,
-      },
+
       yAxis: {
         title: {
-          text: "",
+          text: '' //'Revenue'
         },
         labels: {
           enabled: false,
+          format: '${value} bn'
         },
+        gridLineWidth: 0,
+        showFirstLabel: false,
+        minPadding: 0.5
       },
-      xAxis: {
-        visible: false,
-        labels: {
-          enabled: false,
-        },
-        tickInterval: 0,
+
+      legend: {
+        enabled: false,
+        align: 'left',
+        verticalAlign: 'top',
+        borderWidth: 0
       },
+
+      tooltip: {
+          enabled: false
+      },
+
       plotOptions: {
         series: {
+          lineWidth: 1,
           marker: {
             enabled: false,
           },
@@ -201,12 +222,25 @@
           },
         },
       },
-      tooltip: {
-        enabled: false,
-      },
-      title: {
-        text: "",
-      },
-    });
+
+      series: [{
+          name: 'CD',
+          color: "#cccccc"
+        }, {
+          name: 'Cassette',
+          color: "#cccccc"
+        }, {
+          name: 'Download',
+          lineWidth: 3,
+          color: "#3e0079",
+          zIndex: 1
+        }, {
+          name: 'Vinyl',
+          color: "#cccccc"
+        }, {
+          name: 'Streaming',
+          color: "#cccccc"
+      }]
+});
   </script>
 </html>

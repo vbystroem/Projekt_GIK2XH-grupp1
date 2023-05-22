@@ -17,12 +17,13 @@
       src="https://code.highcharts.com/modules/accessibility.js"
       type="text/javascript"
     ></script>
-    <link rel="stylesheet" href="highcharts.css" />
+<!--     <link rel="stylesheet" href="highcharts.css" /> -->
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css?family=Space Mono" />
   </head>
   <body>
     <div class="bckfwd">
+
       <a href="vinyl.html">
         <button>
           <svg class="nav_btns" data-name="back button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37.98 37.98">
@@ -74,7 +75,7 @@
     </div>
     <div class="chart_drawing">
       <img class="svg" src="../images/sameheight-cassette.svg" alt="" />
-      <div id="container" style="width: 25vw; height: 30vh"></div>
+      <div id="container-chart" style="width: 25vw; height: 30vh"></div>
     </div>
     <div class="topinfo-c">
       <h1>Kassett</h1>
@@ -87,13 +88,13 @@
       </h2>
       <p class="emptyline"><br> </p>
       <h2>
-        <b>Mest sålda album:</b><br/>The Eagles
-        Greatest Hits 1971 – 1975
+        <b>Mest sålda album under formatets starkaste år (1990):</b><br/>Janet Jackson –
+        Rhythm Nation 1814
       </h2>
     </div>
   </body>
   <script class="minichart">
-    Highcharts.chart('container', {
+    Highcharts.chart('container-chart', {
 
       data: {
         csvURL: '../data/RIAA Revenue Chart 1973-2021 Grouped v3 bn round3.csv',
@@ -127,7 +128,9 @@
           enabled: false,
           format: '${value} bn'
         },
-        showFirstLabel: false
+        gridLineWidth: 0,
+        showFirstLabel: false,
+        minPadding: 0.5
       },
 
       legend: {
@@ -143,7 +146,7 @@
 
       plotOptions: {
         series: {
-          lineWidth: 2,
+          lineWidth: 1,
           marker: {
             enabled: false,
           },
@@ -160,21 +163,22 @@
 
       series: [{
           name: 'CD',
-          color: "grey"
+          color: "#cccccc"
         }, {
           name: 'Cassette',
-          lineWidth: 4,
-          color: "#0009b5"
-        }, {
-          name: 'Vinyl',
-          color: "grey"
+          lineWidth: 3,
+          color: "#0009b5",
+          zIndex: 1
         }, {
           name: 'Download',
-          color: "grey"
+          color: "#cccccc"
+        }, {
+          name: 'Vinyl',
+          color: "#cccccc"
         }, {
           name: 'Streaming',
-          color: "grey"
-        }]
+          color: "#cccccc"
+      }]
     });
   </script>
 </html>

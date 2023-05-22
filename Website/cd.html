@@ -17,7 +17,7 @@
       src="https://code.highcharts.com/modules/accessibility.js"
       type="text/javascript"
     ></script>
-    <link rel="stylesheet" href="highcharts.css" />
+<!--     <link rel="stylesheet" href="highcharts.css" /> -->
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css?family=Space Mono" />
   </head>
@@ -138,7 +138,7 @@
     </div>
     <div class="chart_drawing">
       <img class="svg" src="../images/sameheight-cd.svg" alt="" />
-      <div id="container" style="width: 25vw; height: 30vh"></div>
+      <div id="container-chart" style="width: 25vw; height: 30vh"></div>
     </div>
     <div class="topinfo-cd">
       <h1>CD</h1>
@@ -146,48 +146,79 @@
       <p class="emptyline"><br /></p>
       <h2><b>Typ:</b><br />Digital</h2>
       <p class="emptyline"><br /></p>
-      <h2><b>Mest sålda album:</b><br />Michael Jackson – Thriller</h2>
-      <h1 id="doublearrow">»</h1>
+      <h2><b>Mest sålda album under formatets starkaste år (2000):</b><br />NSYNC – No Strings Attached</h2>
+      <a class="scrollink" id="doublearrow" href="#arttitle">»</a>
     </div>
     <div class="divider"><hr></div>
-    <div class="article">
-        <h1>Varför har musiken blivit mer högljudd över de senaste 50 åren?</h1>
+    <div class="arrticle">
+      <div class="article">
+        <h1 id="arttitle">Varför har volymen ökat över de senaste 50 åren?</h1>
+        <div class="artbody">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ante eros, viverra at sodales in, vehicula eu risus. Proin lorem odio, fermentum eu ultrices vitae, accumsan quis tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+          <div class="bigchart">
+            <div id="container-mashup" style="width: 40vw; height: 50vh"></div>
+          </div>
+        </div>
+        
+      </div>
     </div>
+    
+    
   </body>
   <script class="minichart">
-    Highcharts.chart("container", {
-      chart: {
-        type: "spline",
-        events: {
-          load: function () {
-            this.reflow();
-          },
+    Highcharts.chart('container-chart', {
+
+      data: {
+        csvURL: '../data/RIAA Revenue Chart 1973-2021 Grouped v3 bn round3.csv',
+        beforeParse: function (csv) {
+          return csv.replace(/\n\n/g, '\n');
+        }
+      },
+
+      title: {
+        text: '',
+      },
+
+      subtitle: {
+        text: '',
+      },
+
+      xAxis: {
+        visible: true,
+        lineWidth: 0,
+        tickWidth: 0,
+        labels: {
+          enabled: false,
         },
       },
-      colors: ["#c1006f", "#dddddd", "#dddddd", "#dddddd", "#dddddd"],
-      data: {
-        csvURL: "../Data/RIAA Revenue Chart 1973-2021 Grouped v3 bn round3.csv",
-      },
-      legend: {
-        enabled: false,
-      },
+
       yAxis: {
         title: {
-          text: "",
+          text: '' //'Revenue'
         },
         labels: {
           enabled: false,
+          format: '${value} bn'
         },
+        gridLineWidth: 0,
+        showFirstLabel: false,
+        minPadding: 0.5
       },
-      xAxis: {
-        visible: false,
-        labels: {
-          enabled: false,
-        },
-        tickInterval: 0,
+
+      legend: {
+        enabled: false,
+        align: 'left',
+        verticalAlign: 'top',
+        borderWidth: 0
       },
+
+      tooltip: {
+          enabled: false
+      },
+
       plotOptions: {
         series: {
+          lineWidth: 1,
           marker: {
             enabled: false,
           },
@@ -201,12 +232,138 @@
           },
         },
       },
-      tooltip: {
-        enabled: false,
+
+      series: [{
+          name: 'CD',
+          lineWidth: 3,
+          color: "#c1006f",
+          zIndex: 1
+        }, {
+          name: 'Cassette',
+          color: "#cccccc"
+        }, {
+          name: 'Download',
+          color: "#cccccc"
+        }, {
+          name: 'Vinyl',
+          color: "#cccccc"
+        }, {
+          name: 'Streaming',
+          color: "#cccccc"
+      }]
+    });
+
+    Highcharts.chart('container-mashup', {
+      data: {
+          csvURL: '../data/RIAA Spotify loud.csv',
+          beforeParse: function (csv) {
+              return csv.replace(/\n\n/g, '\n');
+          }
       },
+
       title: {
-        text: "",
+        text: '',
       },
+
+      subtitle: {
+        text: '',
+      },
+
+      xAxis: {
+        visible: true,
+        lineWidth: 1,
+        lineColor: "#cccccc",
+        tickWidth: 0,
+        labels: {
+          enabled: true,
+        }
+      },
+
+      yAxis: [
+        { // left y axis
+          title: {
+            text: 'Revenue'
+          },
+          labels: {
+            enabled: true,
+            format: '${value} bn'
+          },
+          gridLineWidth: 0,
+          showFirstLabel: false,
+          minPadding: 0.5,
+          lineWidth: 1,
+          lineColor: "#cccccc"
+        },
+        { // right y axis
+          opposite: true,
+          title: {
+            text: 'dbFS'
+          },
+          labels: {
+            enabled: true,
+            format: '{value}'
+          },
+          gridLineWidth: 0,
+          showFirstLabel: false,
+          minPadding: 0.5
+        },
+      ],
+
+      legend: {
+        enabled: false,
+        align: 'left',
+        verticalAlign: 'top',
+        borderWidth: 0
+      },
+
+      tooltip: {
+          enabled: false
+      },
+
+      plotOptions: {
+        series: {
+          lineWidth: 1,
+          marker: {
+            enabled: false,
+          },
+          states: {
+            hover: {
+              enabled: false,
+            },
+            inactive: {
+              opacity: 1,
+            },
+          },
+        },
+      },
+
+      series: [{
+          name: 'CD',
+          color: "#c1006f",/* "#c1006f" */
+          lineWidth: 3
+        }, {
+          name: 'Cassette',
+          color: "#cccccc",/* "#0009b5" */
+          visible: false
+        }, {
+          name: 'Download',
+          color: "#cccccc",/* "#3e0079" */
+          visible: false
+        }, {
+          name: 'Vinyl',
+          color: "#cccccc",/* "#a84800" */
+          visible: false
+        }, {
+          name: 'Streaming',
+          color: "#cccccc",/* "#137000" */
+          visible: false
+        }, {
+          name: 'Loudness',
+          lineWidth: 3,
+          color: 'black',
+          zIndex: 2,
+          yAxis: 1
+      }]
     });
   </script>
 </html>
