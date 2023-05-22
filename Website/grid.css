@@ -1,0 +1,63 @@
+.landing_chart {
+    display: grid;
+    gap: 3px;
+    grid-template-areas:
+      ". . . . . . . . . . . . . . . . ."
+      ". . . . . . . . . . . . . . . . ."
+      ". . . . . . . . . . . . . . . . ." 
+      ". . . . . . . cd cd cd cd cd cd . . . ."
+      ". . . . . . . cd cd cd cd cd cd . . . ."
+      "v v v v . . . cd cd cd cd cd cd . . . ."
+      "v v v v c c c cd cd cd cd cd cd . s s s"
+      "v v v v c c c cd cd cd cd cd cd . s s s"
+      "v v v v c c c cd cd cd cd cd cd d s s s"
+      "v v v v c c c cd cd cd cd cd cd d s s s"; 
+  }
+
+
+#vinyl {
+    grid-area: v;
+    height: 50vh;
+    border: solid 1px black;
+    background-color: antiquewhite;
+  }
+
+#cassette {
+    grid-area: c;
+    height: 35vh;
+    border: solid 1px black;
+    background-color: antiquewhite;
+  }
+
+#cd {
+    grid-area: cd;
+    height: 65vh;
+    border: solid 1px black;
+    background-color: antiquewhite;
+}
+
+#download {
+    grid-area: d; 
+    height: 12vh;
+    border: solid 1px black;
+    background-color: antiquewhite;
+}
+
+#stream {
+    height: 30vh;
+    grid-area: s;
+    border: solid 1px black;
+    background-color: antiquewhite;
+  }
+
+.chartimg {
+    display: block;
+}
+
+
+
+
+
+
+
+  
