@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title><!-- 
-    <link rel="stylesheet" href="style.css"> -->
-    <link rel="stylesheet" href="grid.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="landing_chart">
-        <a href="vinyl.html">
+        <!-- <a href="vinyl.html">
             <img id="vinyl" class="chartimg" src="../images/formats-vinyl.svg" style="width: 10vw; height: 22vh" alt="bild på en vinylskiva i fodral">
         </a>
         <a href="cassette.html">
@@ -22,9 +21,66 @@
         <a href="download.html">
             <img id="download" class="chartimg" src="../images/formats-downloads.svg" style="width: 10vw; height: 10vh" alt="bild på ett usb-minne">
         </a>
-        <a href="stream.html">
+        <a href="streaming.html">
             <img id="stream" class="chartimg" src="../images/formats-streaming.svg" style="width: 10vw; height: 13vh" alt="bild på en smartphone">
-        </a>
+        </a> -->
+        <object id="landing-1280" type="image/svg+xml" data="../images/landing-1280.svg" alt=""></object>
+        <object id="landing-768" type="image/svg+xml" data="../images/landing-768.svg" alt=""></object>
+        <object id="landing-360" type="image/svg+xml" data="../images/landing-360.svg" alt=""></object>
     </div>
 </body>
+
+<!-- <script>
+    // Function to extract IDs from an SVG document
+    function extractSVGIDs(svgDocument) {
+      var svgIDs = [];
+      var elements = svgDocument.getElementsByTagName('*');
+      for (var i = 0; i < elements.length; i++) {
+        var element = elements[i];
+        var id = element.getAttribute('id');
+        if (id) {
+          svgIDs.push(id);
+        }
+      }
+      return svgIDs;
+    }
+
+    // Wrap SVG elements with clickable <a> tags
+    function wrapSVGElementsWithLinks(svgDocument, ids) {
+      for (var i = 0; i < ids.length; i++) {
+        var id = ids[i];
+        var svgElement = svgDocument.getElementById(id);
+
+        // Create <a> tag
+        var link = document.createElement('a');
+        link.href = '#'; // Set the desired link here
+        link.addEventListener('click', handleButtonClick); // Add click event listener
+
+        // Wrap SVG element with <a> tag
+        svgElement.parentNode.insertBefore(link, svgElement);
+        link.appendChild(svgElement);
+
+        // Add class for styling
+        link.classList.add('svg-button');
+      }
+    }
+
+    // Handle button click event
+    function handleButtonClick(event) {
+      event.preventDefault();
+      var buttonId = event.target.id;
+      // Perform actions based on the button ID
+      console.log('Button clicked:', buttonId);
+      // Add your custom logic here
+    }
+
+    // Retrieve and process the IDs for each SVG object
+    var svgObjects = document.querySelectorAll('object[type="image/svg+xml"]');
+    svgObjects.forEach(function(svgObject) {
+      var svgDocument = svgObject.contentDocument;
+      var svgIDs = extractSVGIDs(svgDocument);
+      wrapSVGElementsWithLinks(svgDocument, svgIDs);
+    });
+  </script> -->
+  
 </html>

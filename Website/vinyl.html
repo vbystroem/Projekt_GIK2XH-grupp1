@@ -23,27 +23,31 @@
   </head>
   <body>
     <div class="bckfwd">
-      <svg
-        class="nav_btns"
-        data-name="back button"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 37.98 37.98">
+      <a>
+        <button>
+          <svg
+            class="nav_btns"
+            data-name="back button"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 37.98 37.98">
 
-        <rect x="1" y="1" width="35.98" height="35.98" rx="4.04" fill="none" />
-        <path
-          class="noback-r"
-          d="M111.46,47.24a3,3,0,0,1,3,3V78.18a3,3,0,0,1-3,3H83.56a3,3,0,0,1-3-3V50.29a3,3,0,0,1,3-3h27.9m0-2H83.56a5,5,0,0,0-5,5V78.18a5,5,0,0,0,5,5h27.9a5,5,0,0,0,5-5V50.29a5,5,0,0,0-5-5Z"
-          transform="translate(-78.52 -45.24)"/>
+            <rect x="1" y="1" width="35.98" height="35.98" rx="4.04" fill="none" />
+            <path
+              class="noback-r"
+              d="M111.46,47.24a3,3,0,0,1,3,3V78.18a3,3,0,0,1-3,3H83.56a3,3,0,0,1-3-3V50.29a3,3,0,0,1,3-3h27.9m0-2H83.56a5,5,0,0,0-5,5V78.18a5,5,0,0,0,5,5h27.9a5,5,0,0,0,5-5V50.29a5,5,0,0,0-5-5Z"
+              transform="translate(-78.52 -45.24)"/>
 
-        <polyline
-          class="noback"
-          points="24.37 29.75 13.61 18.99 24.37 8.23"
-          fill="none"
-          stroke="#000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"/>
-      </svg>
+            <polyline
+              class="noback"
+              points="24.37 29.75 13.61 18.99 24.37 8.23"
+              fill="none"
+              stroke="#000"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"/>
+          </svg>
+        </button>
+      </a>
 
       <a href="landing.html">
         <button>
@@ -124,12 +128,13 @@
         </button>
       </a>
     </div>
-    <div class="chart_drawing">
-      <img class="svg" src="../images/sameheight-vinyl.svg" alt="" />
-      <div id="container-chart" style="width: 25vw; height: 30vh"></div>
-    </div>
     <div class="topinfo-v">
-      <h1>Vinyl</h1>
+      <div class="chart_drawing">
+        <img class="svg" src="../images/sameheight-vinyl.svg" alt="" />
+        <h1>Vinyl</h1>
+        <div id="container-chart"></div>
+      </div>
+      <h1 class="h1-after">Vinyl</h1>
       <h2><b>Heyday:</b><br />1976 – 1984</h2>
       <p class="emptyline"><br /></p>
       <h2><b>Typ:</b><br />Analog</h2>
@@ -137,6 +142,7 @@
       <h2><b>Mest sålda album under formatets starkaste år (1978):</b><br />Bee Gees and Various Artists – Saturday Night Fever</h2>
     </div>
   </body>
+
   <script class="minichart">
     Highcharts.chart("container-chart", {
       data: {
@@ -156,25 +162,51 @@
 
       xAxis: {
         visible: true,
-        lineWidth: 0,
+        lineWidth: 1,
+        lineColor: "#cccccc",
         tickWidth: 0,
         labels: {
-          enabled: false,
+          enabled: true,
+          formatter: function() {
+            if (this.isLast || this.isFirst) {
+              return this.value
+            }
+          },
+          x: 11,
+          y: -250,
+          style: {
+            color: '#a84800',
+            fontFamily: 'Space Mono'
+          },
         },
+        tickInterval: 1
       },
 
-      yAxis: {
+      yAxis: [{
         title: {
-          text: "", //'Revenue'
+          text: '' //'Revenue'
         },
+        visible: true,
+        lineWidth: 1,
+        lineColor: "#cccccc",
+        tickWidth: 0,
+        gridLineWidth: 0,
+        minPadding: 0.5,
         labels: {
           enabled: false,
-          format: "${value} bn",
-        },
-        gridLineWidth: 0,
-        showFirstLabel: false,
-        minPadding: 0.5,
-      },
+          format: '${value} bn'
+        }
+      },{
+        opposite: true,
+        visible: true,
+        lineWidth: 1,
+        lineColor: "#cccccc",
+        tickWidth: 0,
+        title: '',
+        labels: {
+          enabled: false,
+        }
+      }],
 
       legend: {
         enabled: false,
@@ -204,8 +236,7 @@
         },
       },
 
-      series: [
-        {
+      series: [{
           name: "CD",
           color: "#cccccc",
         },
@@ -226,8 +257,7 @@
         {
           name: "Streaming",
           color: "#cccccc",
-        },
-      ],
+      }]
     });
   </script>
 </html>

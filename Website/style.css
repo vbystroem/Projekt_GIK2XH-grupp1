@@ -13,9 +13,7 @@ body {
 
 .landing_chart {
     display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    max-width: 90vw;
+    justify-content: center;
 }
 
 .chartimg {
@@ -46,11 +44,12 @@ body {
 .svg {
     height: 30vh;
     width: auto;
-    padding: 1vw;
+/*     padding: 1vw; */
 }
 
 .chart_drawing {
     display: flex;
+    flex-direction: row;
 }
 
 .topinfo-c {
@@ -135,7 +134,7 @@ body {
 }
 
 .bckfwd {
-    margin-left: 1vw;
+    margin: 0 0 1vh 1vw;
 }
 
 button {
@@ -143,7 +142,7 @@ button {
     cursor: pointer;
 }
 
-  a { 
+a { 
     text-decoration: none;
     margin: 0;
 }
@@ -151,6 +150,7 @@ button {
 h1 {
     margin-bottom: 2rem;
     font-size: 3rem;
+    font-weight: 600;
 }
 
 h2 {
@@ -216,8 +216,18 @@ hr {
 
 .bigchart {
     display: flex;
+    flex-direction: column;
     justify-content: right;
     margin: 2rem 0;
+}
+
+.buttons {
+    align-self: center;
+}
+
+.buttons button {
+    margin: 1rem;
+    margin-top: 0;
 }
 
 .artbody {
@@ -229,8 +239,201 @@ hr {
 .artbody p {
     margin-right: 5vw;
     font-family: 'Roboto Mono';
+    width: 50vw;
 }
 
+.landscape {
+    display: none;
+}
 
+.chart_drawing h1 {
+    display: none;
+}
 
+#container-chart {
+    min-width: 30vw;
+    max-width: 60vw;
+    height: 30vh;
+}
 
+#container-mashup {
+    width: 40vw;
+    height: 30vh;
+}
+
+#landing-1280 {
+    display: inherit;
+    width: 100%;
+}
+
+#landing-768 {
+    display: none;
+    width: 100%;
+}
+
+#landing-360 {
+    display: none;
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    h1 {
+        margin-bottom: 1rem;
+        font-size: 1.6rem;
+        align-self: flex-start;
+    }
+
+    h2 {
+        font-size: 1rem;
+    }
+
+    .scrollink {
+        font-size: 2rem;
+    }
+    
+    .svg {
+        width: 45vw;
+        height: auto;
+    }
+
+    .landscape {
+        display: inherit;
+    }
+
+    .portrait {
+        display: none;
+    }
+
+ /*    .bckfwd {
+        width: 50%;
+        display: flex;
+    }
+
+    .bckfwd a {
+        flex: 1;
+        justify-self: center;
+    }
+
+    .bckfwd a:nth-child(3) {
+        flex: 1;
+        justify-self: flex-end;
+    } */
+    
+    .topinfo-v {
+        margin-left: 1vw;
+        font-family: 'Space Mono';
+        color: #a84800;
+    }
+
+    .topinfo-c {
+        margin-left: 1vw;
+        font-family: 'Space Mono';
+        color: #0009b5;
+    }
+
+    .topinfo-cd {
+        margin-left: 1vw;
+        font-family: 'Space Mono'; 
+        color: #c1006f;
+    }
+
+    .topinfo-d {
+        margin-left: 1vw;
+        font-family: 'Space Mono';
+        color: #3e0079;
+    }
+
+    .topinfo-s {
+        margin-left: 1vw;
+        font-family: 'Space Mono';
+        color: #137000;
+    }
+
+    .artbody {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #container-chart {
+        min-width: auto;
+        max-width: 100vh;
+        height: 30vh;
+    }
+
+    #container-mashup {
+        width: 100vw;
+        height: 20vh;
+    }
+
+    .artbody p {
+        margin-right: 5vw;
+        font-family: 'Roboto Mono';
+        width: 60vw;
+    }
+
+    .chart_drawing {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .chart_drawing h1 {
+        display: inherit;
+    }
+
+    .h1-after {
+        display: none;
+    }
+
+    #landing-1280 {
+        display: none;
+    }
+
+    #landing-768 {
+        display: none;
+    }
+
+    #landing-360 {
+        display: inherit;
+    }
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+    #container-chart {
+        min-width: auto;
+        max-width: 100vh;
+        height: 30vh;
+    }
+
+    #container-mashup {
+        width: 80vw;
+        height: 30vh;
+    }
+
+    .artbody {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .artbody p {
+/*         margin-right: 5vw; */
+        font-family: 'Roboto Mono';
+        width: 90%;
+    }
+
+    #landing-1280 {
+        display: none;
+    }
+
+    #landing-768 {
+        display: inherit;
+    }
+
+    #landing-360 {
+        display: none;
+    }
+}

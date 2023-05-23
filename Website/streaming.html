@@ -17,7 +17,6 @@
       src="https://code.highcharts.com/modules/accessibility.js"
       type="text/javascript"
     ></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 <!--     <link rel="stylesheet" href="highcharts.css" /> -->
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css?family=Space Mono" />
@@ -129,14 +128,17 @@
               stroke-linejoin="round"
               stroke-width="2"
             />
-          </svg>
+      </svg>
     </div>
-    <div class="chart_drawing">
-      <img class="svg" src="../images/sameheight-streaming.svg" alt="" />
-      <div id="container-chart" style="width: 25vw; height: 30vh"></div>
-    </div>
+    
     <div class="topinfo-s">
-      <h1>Streaming</h1>
+      <div class="chart_drawing">
+        <img class="svg portrait" src="../images/sameheight-streaming.svg" alt="" />
+        <img class="svg landscape" src="../images/formats-streaming-landscape.svg" alt="">
+        <h1>Streaming</h1>
+        <div id="container-chart"></div>
+      </div>
+      <h1 class="h1-after">Streaming</h1>
       <h2><b>Heyday:</b><br />2016 – Nuvarande</h2>
       <p class="emptyline"><br /></p>
       <h2><b>Typ:</b><br />Digital</h2>
@@ -146,27 +148,26 @@
     </div>
     <div class="divider"><hr></div>
     <div class="arrticle">
-      <div class="article">
-        <h1 id="arttitle">Hur har streamingtjänster påverkat våra lyssningsvanor?</h1>
+      <article class="article">
+        <h1 id="arttitle">Hur har streamingtjänster påverkat våra lyssnarvanor?</h1>
         <div class="artbody">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ante eros, viverra at sodales in, vehicula eu risus. Proin lorem odio, fermentum eu ultrices vitae, accumsan quis tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-          <div class="bigchart d-flex flex-column">
-            <div id="container-mashup" style="width: 40vw; height: 50vh"></div>
-            <div class="d-flex flex-row justify-content-center mt-5">
-              <button onclick="doChart(0)" class="btn-primary btn-sm m-2">
+          <div class="bigchart">
+            <div id="container-mashup"></div>
+            <div class="buttons">
+              <button onclick="doChart(0)" class="">
                 Låtlängd
               </button>
-              <button onclick="doChart(1)" class="btn-primary btn-sm m-2">
+              <button onclick="doChart(1)" class="">
                 Ljudnivå
               </button>
             </div>
           </div>
         </div>
-      </div>
+      </article>
     </div>
-    
-    
   </body>
+
   <script class="minichart">
     Highcharts.chart('container-chart', {
 
@@ -187,25 +188,51 @@
 
       xAxis: {
         visible: true,
-        lineWidth: 0,
+        lineWidth: 1,
+        lineColor: "#cccccc",
         tickWidth: 0,
         labels: {
-          enabled: false,
+          enabled: true,
+          formatter: function() {
+            if (this.isLast || this.isFirst) {
+              return this.value
+            }
+          },
+          x: 11,
+          y: -250,
+          style: {
+            color: '#137000',
+            fontFamily: 'Space Mono'
+          },
         },
+        tickInterval: 1
       },
 
-      yAxis: {
+      yAxis: [{
         title: {
           text: '' //'Revenue'
         },
+        visible: true,
+        lineWidth: 1,
+        lineColor: "#cccccc",
+        tickWidth: 0,
+        gridLineWidth: 0,
+        minPadding: 0.5,
         labels: {
           enabled: false,
           format: '${value} bn'
-        },
-        gridLineWidth: 0,
-        showFirstLabel: false,
-        minPadding: 0.5
-      },
+        }
+      },{
+        opposite: true,
+        visible: true,
+        lineWidth: 1,
+        lineColor: "#cccccc",
+        tickWidth: 0,
+        title: '',
+        labels: {
+          enabled: false,
+        }
+      }],
 
       legend: {
         enabled: false,
@@ -237,20 +264,20 @@
 
       series: [{
           name: 'CD',
-          color: "#cccccc"
+          color: "#cccccc",/* "#c1006f" */
         }, {
           name: 'Cassette',
-          color: "#cccccc"
+          color: "#cccccc",/* "#0009b5" */
         }, {
           name: 'Download',
-          color: "#cccccc"
+          color: "#cccccc",/* "#3e0079" */
         }, {
           name: 'Vinyl',
-          color: "#cccccc"
+          color: "#cccccc",/* "#a84800" */
         }, {
           name: 'Streaming',
+          color: "#137000",/* "#137000" */
           lineWidth: 3,
-          color: "#137000",
           zIndex: 1
       }]
     });
@@ -290,8 +317,7 @@
             },
           },
 
-          yAxis: [
-            { // left y axis
+          yAxis: [{ // left y axis
               title: {
                 text: 'Revenue'
               },
@@ -300,9 +326,8 @@
                 format: '${value} bn'
               },
               gridLineWidth: 0,
-              showFirstLabel: false,
               minPadding: 0.5,
-              lineWidth: 1,
+              lineWidth: 0,
               lineColor: "#cccccc"
             },
             { // right y axis
@@ -314,11 +339,11 @@
                 enabled: true,
                 format: '{value}s'
               },
+              lineWidth: 0,
+              lineColor: "#cccccc",
               gridLineWidth: 0,
-              showFirstLabel: false,
               minPadding: 0.5
-            }
-          ],
+          }],
 
           legend: {
             enabled: false,
@@ -414,7 +439,6 @@
                 format: '${value} bn'
               },
               gridLineWidth: 0,
-              showFirstLabel: false,
               minPadding: 0.5,
               lineWidth: 1,
               lineColor: "#cccccc"
@@ -429,7 +453,6 @@
                 format: '{value}s'
               },
               gridLineWidth: 0,
-              showFirstLabel: false,
               minPadding: 0.5
             }
           ],

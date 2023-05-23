@@ -136,12 +136,13 @@
         </button>
       </a>
     </div>
-    <div class="chart_drawing">
-      <img class="svg" src="../images/sameheight-cd.svg" alt="" />
-      <div id="container-chart" style="width: 25vw; height: 30vh"></div>
-    </div>
     <div class="topinfo-cd">
-      <h1>CD</h1>
+      <div class="chart_drawing">
+        <img class="svg" src="../images/sameheight-cd.svg" alt="" />
+        <h1>CD</h1>
+        <div id="container-chart"></div>
+      </div>
+      <h1 class="h1-after">CD</h1>
       <h2><b>Heyday:</b><br />1994 – 2007</h2>
       <p class="emptyline"><br /></p>
       <h2><b>Typ:</b><br />Digital</h2>
@@ -151,20 +152,18 @@
     </div>
     <div class="divider"><hr></div>
     <div class="arrticle">
-      <div class="article">
+      <article class="article">
         <h1 id="arttitle">Varför har volymen ökat över de senaste 50 åren?</h1>
         <div class="artbody">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ante eros, viverra at sodales in, vehicula eu risus. Proin lorem odio, fermentum eu ultrices vitae, accumsan quis tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
           <div class="bigchart">
-            <div id="container-mashup" style="width: 40vw; height: 50vh"></div>
+            <div id="container-mashup"></div>
           </div>
         </div>
-        
-      </div>
+      </article>
     </div>
-    
-    
   </body>
+
   <script class="minichart">
     Highcharts.chart('container-chart', {
 
@@ -185,25 +184,51 @@
 
       xAxis: {
         visible: true,
-        lineWidth: 0,
+        lineWidth: 1,
+        lineColor: "#cccccc",
         tickWidth: 0,
         labels: {
-          enabled: false,
+          enabled: true,
+          formatter: function() {
+            if (this.isLast || this.isFirst) {
+              return this.value
+            }
+          },
+          x: 11,
+          y: -250,
+          style: {
+            color: '#c1006f',
+            fontFamily: 'Space Mono'
+          },
         },
+        tickInterval: 1
       },
 
-      yAxis: {
+      yAxis: [{
         title: {
           text: '' //'Revenue'
         },
+        visible: true,
+        lineWidth: 1,
+        lineColor: "#cccccc",
+        tickWidth: 0,
+        gridLineWidth: 0,
+        minPadding: 0.5,
         labels: {
           enabled: false,
           format: '${value} bn'
-        },
-        gridLineWidth: 0,
-        showFirstLabel: false,
-        minPadding: 0.5
-      },
+        }
+      },{
+        opposite: true,
+        visible: true,
+        lineWidth: 1,
+        lineColor: "#cccccc",
+        tickWidth: 0,
+        title: '',
+        labels: {
+          enabled: false,
+        }
+      }],
 
       legend: {
         enabled: false,
@@ -235,21 +260,21 @@
 
       series: [{
           name: 'CD',
+          color: "#c1006f",/* "#c1006f" */
           lineWidth: 3,
-          color: "#c1006f",
           zIndex: 1
         }, {
           name: 'Cassette',
-          color: "#cccccc"
+          color: "#cccccc",/* "#0009b5" */
         }, {
           name: 'Download',
-          color: "#cccccc"
+          color: "#cccccc",/* "#3e0079" */
         }, {
           name: 'Vinyl',
-          color: "#cccccc"
+          color: "#cccccc",/* "#a84800" */
         }, {
           name: 'Streaming',
-          color: "#cccccc"
+          color: "#cccccc",/* "#137000" */
       }]
     });
 
@@ -289,7 +314,6 @@
             format: '${value} bn'
           },
           gridLineWidth: 0,
-          showFirstLabel: false,
           minPadding: 0.5,
           lineWidth: 1,
           lineColor: "#cccccc"
@@ -304,7 +328,6 @@
             format: '{value}'
           },
           gridLineWidth: 0,
-          showFirstLabel: false,
           minPadding: 0.5
         },
       ],

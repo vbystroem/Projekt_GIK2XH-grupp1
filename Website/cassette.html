@@ -73,12 +73,13 @@
       </a>
       
     </div>
-    <div class="chart_drawing">
-      <img class="svg" src="../images/sameheight-cassette.svg" alt="" />
-      <div id="container-chart" style="width: 25vw; height: 30vh"></div>
-    </div>
     <div class="topinfo-c">
-      <h1>Kassett</h1>
+      <div class="chart_drawing">
+        <img class="svg" src="../images/sameheight-cassette.svg" alt="" />
+        <h1>Kassett</h1>
+        <div id="container-chart"></div>
+      </div>
+      <h1 class="h1-after">Kassett</h1>
       <h2>
         <b>Heyday:</b><br/>1987 – 1992
       </h2>
@@ -93,6 +94,7 @@
       </h2>
     </div>
   </body>
+
   <script class="minichart">
     Highcharts.chart('container-chart', {
 
@@ -113,25 +115,51 @@
 
       xAxis: {
         visible: true,
-        lineWidth: 0,
+        lineWidth: 1,
+        lineColor: "#cccccc",
         tickWidth: 0,
         labels: {
-          enabled: false,
+          enabled: true,
+          formatter: function() {
+            if (this.isLast || this.isFirst) {
+              return this.value
+            }
+          },
+          x: 11,
+          y: -250,
+          style: {
+            color: '#0009b5',
+            fontFamily: 'Space Mono'
+          },
         },
+        tickInterval: 1
       },
 
-      yAxis: {
+      yAxis: [{
         title: {
           text: '' //'Revenue'
         },
+        visible: true,
+        lineWidth: 1,
+        lineColor: "#cccccc",
+        tickWidth: 0,
+        gridLineWidth: 0,
+        minPadding: 0.5,
         labels: {
           enabled: false,
           format: '${value} bn'
-        },
-        gridLineWidth: 0,
-        showFirstLabel: false,
-        minPadding: 0.5
-      },
+        }
+      },{
+        opposite: true,
+        visible: true,
+        lineWidth: 1,
+        lineColor: "#cccccc",
+        tickWidth: 0,
+        title: '',
+        labels: {
+          enabled: false,
+        }
+      }],
 
       legend: {
         enabled: false,
@@ -161,23 +189,23 @@
         },
       },
 
-      series: [{
+      series: [{          
           name: 'CD',
-          color: "#cccccc"
+          color: "#cccccc",/* "#c1006f" */
         }, {
           name: 'Cassette',
+          color: "#0009b5",/* "#0009b5" */
           lineWidth: 3,
-          color: "#0009b5",
           zIndex: 1
         }, {
           name: 'Download',
-          color: "#cccccc"
+          color: "#cccccc",/* "#3e0079" */
         }, {
           name: 'Vinyl',
-          color: "#cccccc"
+          color: "#cccccc",/* "#a84800" */
         }, {
           name: 'Streaming',
-          color: "#cccccc"
+          color: "#cccccc",/* "#137000" */
       }]
     });
   </script>

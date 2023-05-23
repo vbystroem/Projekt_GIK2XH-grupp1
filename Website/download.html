@@ -137,12 +137,14 @@
         </button>
       </a>
     </div>
-    <div class="chart_drawing">
-      <img class="svg" src="../images/sameheight-downloads.svg" alt="" />
-      <div id="container-chart" style="width: 25vw; height: 30vh"></div>
-    </div>
     <div class="topinfo-d">
-      <h1>Nedladdning</h1>
+      <div class="chart_drawing">
+        <img class="svg portrait" src="../images/sameheight-downloads.svg" alt="" />
+        <img class="svg landscape" src="../images/formats-downloads-landscape.svg" alt="">
+        <h1>Nedladdning</h1>
+        <div id="container-chart"></div>
+      </div>
+      <h1 class="h1-after">Nedladdning</h1>
       <h2><b>Heyday:</b><br />2011 – 2015</h2>
       <p class="emptyline"><br /></p>
       <h2><b>Typ:</b><br />Digital</h2>
@@ -151,10 +153,11 @@
       <a class="scrollink" id="doublearrow" href="#arttitle">»</a>
     </div>
     <div class="divider"><hr></div>
-    <div class="article">
-        <h1 id="arttitle">Varför kraschade musikbranchen efter nedladdningen blev mainstream?</h1>
-    </div>
+    <article class="article">
+        <h1 id="arttitle">Varför kraschade musikbranchen när nedladdningar blev mainstream?</h1>
+    </article>
   </body>
+
   <script class="minichart">
     Highcharts.chart('container-chart', {
 
@@ -175,25 +178,51 @@
 
       xAxis: {
         visible: true,
-        lineWidth: 0,
+        lineWidth: 1,
+        lineColor: "#cccccc",
         tickWidth: 0,
         labels: {
-          enabled: false,
+          enabled: true,
+          formatter: function() {
+            if (this.isLast || this.isFirst) {
+              return this.value
+            }
+          },
+          x: 11,
+          y: -250,
+          style: {
+            color: '#3e0079',
+            fontFamily: 'Space Mono'
+          },
         },
+        tickInterval: 1
       },
 
-      yAxis: {
+      yAxis: [{
         title: {
           text: '' //'Revenue'
         },
+        visible: true,
+        lineWidth: 1,
+        lineColor: "#cccccc",
+        tickWidth: 0,
+        gridLineWidth: 0,
+        minPadding: 0.5,
         labels: {
           enabled: false,
           format: '${value} bn'
-        },
-        gridLineWidth: 0,
-        showFirstLabel: false,
-        minPadding: 0.5
-      },
+        }
+      },{
+        opposite: true,
+        visible: true,
+        lineWidth: 1,
+        lineColor: "#cccccc",
+        tickWidth: 0,
+        title: '',
+        labels: {
+          enabled: false,
+        }
+      }],
 
       legend: {
         enabled: false,
@@ -225,21 +254,21 @@
 
       series: [{
           name: 'CD',
-          color: "#cccccc"
+          color: "#cccccc",/* "#c1006f" */
         }, {
           name: 'Cassette',
-          color: "#cccccc"
+          color: "#cccccc",/* "#0009b5" */
         }, {
           name: 'Download',
           lineWidth: 3,
-          color: "#3e0079",
+          color: "#3e0079",/* "#3e0079" */
           zIndex: 1
         }, {
           name: 'Vinyl',
-          color: "#cccccc"
+          color: "#cccccc",/* "#a84800" */
         }, {
           name: 'Streaming',
-          color: "#cccccc"
+          color: "#cccccc",/* "#137000" */
       }]
 });
   </script>
