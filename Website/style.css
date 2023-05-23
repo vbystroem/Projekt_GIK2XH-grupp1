@@ -16,31 +16,6 @@ body {
     justify-content: center;
 }
 
-.chartimg {
-    height: 100%;
-    width: 100%;
-}
-
-#vinyl {
-    width: 18.2%;
-}
-
-#cassette {
-    width: 17.6%;
-}
-
-#cd {
-    width: 51%;
-}
-
-#download {
-    width: 5.1%;
-}
-
-#stream {
-    width: 8%;
-}
-
 .svg {
     height: 30vh;
     width: auto;
@@ -147,14 +122,61 @@ a {
     margin: 0;
 }
 
+.landing-title {
+    color: #000;
+    width: 33vw;
+}
+
+.landing-title h1 {
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Space Mono';
+}
+
+.landing-title h2 {
+    font-family: 'Space Mono';
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 75%;
+    margin-bottom: 1rem;
+    animation: color-change 3s infinite;
+}
+
+@keyframes color-change {
+    0% { color: #a84800; }
+    25% { color: #0009b5; }
+    50% { color: #c1006f; }
+    75% { color: #3e0079; }
+    100% { color: #137000; }
+  }
+
+.landing-title hr {
+    width: 25vw;
+    margin-top: 0;
+    margin-bottom: 3rem;
+}
+
+.landing-title p {
+    margin-bottom: 4rem;
+}
+
 h1 {
     margin-bottom: 2rem;
     font-size: 3rem;
     font-weight: 600;
+    font-family: 'Space Mono';
 }
 
 h2 {
     font-weight: 300;
+    font-family: 'Space Mono';
+    
+    font-size: 1rem;
+}
+
+p {
+    font-family: 'Roboto Mono';
 }
 
 b {
@@ -279,7 +301,7 @@ hr {
 @media screen and (max-width: 768px) {
     h1 {
         margin-bottom: 1rem;
-        font-size: 1.6rem;
+        font-size: 3rem;
         align-self: flex-start;
     }
 
@@ -303,21 +325,6 @@ hr {
     .portrait {
         display: none;
     }
-
- /*    .bckfwd {
-        width: 50%;
-        display: flex;
-    }
-
-    .bckfwd a {
-        flex: 1;
-        justify-self: center;
-    }
-
-    .bckfwd a:nth-child(3) {
-        flex: 1;
-        justify-self: flex-end;
-    } */
     
     .topinfo-v {
         margin-left: 1vw;
@@ -353,7 +360,6 @@ hr {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
     }
 
     #container-chart {
@@ -367,10 +373,17 @@ hr {
         height: 20vh;
     }
 
-    .artbody p {
-        margin-right: 5vw;
-        font-family: 'Roboto Mono';
-        width: 60vw;
+    .article {
+        width: 100%;
+    }
+
+    #arttitle {
+        font-size: 2rem;
+    }
+
+    .artbody {
+        width: 100%;
+        display: block;
     }
 
     .chart_drawing {
@@ -398,9 +411,40 @@ hr {
         display: inherit;
     }
 
+    .landing-title {
+        color: #000;
+        width: 100%;
+    }
+    
+    .landing-title h1 {
+        width: 100%;
+        font-size: 1rem;
+        font-weight: 600;
+        font-family: 'Space Mono';
+    }
+    
+    .landing-title h2 {
+        font-family: 'Space Mono';
+        font-size: 1rem;
+        font-weight: 300;
+        margin-bottom: 1rem;
+        animation: color-change 3s infinite;
+    }
+    
+    .landing-title hr {
+        margin-top: 0;
+        margin-bottom: 3rem;
+        width: 80vw;
+    }
+    
+    .landing-title p {
+        margin-bottom: 4rem;
+    }
+
 }
 
 @media screen and (min-width: 769px) and (max-width: 1200px) {
+    
     #container-chart {
         min-width: auto;
         max-width: 100vh;
@@ -435,5 +479,46 @@ hr {
 
     #landing-360 {
         display: none;
+    }
+
+    .landing-title {
+        color: #000;
+        width: 50vw;
+    }
+    
+    .landing-title h1 {
+        font-size: 1rem;
+        font-weight: 600;
+        font-family: 'Space Mono';
+    }
+    
+    .landing-title h2 {
+        font-family: 'Space Mono';
+        font-size: 1rem;
+        font-weight: 300;
+        margin-bottom: 1rem;
+        animation: color-change 3s infinite;
+    }
+    
+    .landing-title hr {
+        margin-top: 0;
+        margin-bottom: 3rem;
+        width: 40vw;
+    }
+    
+    .landing-title p {
+        margin-bottom: 4rem;
+    }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+    .landing-title p {
+        width: 54ch;
+    }
+}
+
+@media screen and (min-width: 880px) and (max-width: 1200px) {
+    .landing-title p {
+        width: 54ch;
     }
 }
