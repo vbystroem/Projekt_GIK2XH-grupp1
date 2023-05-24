@@ -20,6 +20,7 @@
 <!--     <link rel="stylesheet" href="highcharts.css" /> -->
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css?family=Space Mono" />
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono" rel="stylesheet">
   </head>
   <body>
     <div class="bckfwd">
@@ -155,12 +156,22 @@
       <article class="article">
         <h1 id="arttitle">Varför har volymen ökat över de senaste 50 åren?</h1>
         <div class="artbody">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ante eros, viverra at sodales in, vehicula eu risus. Proin lorem odio, fermentum eu ultrices vitae, accumsan quis tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
           <div class="bigchart">
             <div id="container-mashup"></div>
           </div>
+        <div>
+          <figure class="artfig">
+            <blockquote>“[...] before digital audio formats, vinyl records and electromagnetic tape placed definite physical limitations on the amount of volume that a recording could exhibit (on a record, for example, louder sounds mean wider grooves, which means less playing time). The CD eliminated some of these concerns, and allowed for a wider dynamic range than previous playback media.” </blockquote>
+            <figcaption>— Kyle Devine, <cite class="cite-c"><a href="https://www.jstor.org/stable/24736755" target="_blank">Imperfect sound forever: loudness wars, listening formations and the history of sound reproduction</a></cite></figcaption>
+          </figure>
+          <p class="emptyline"><br></p>
+          <hr>
+          <p><b>Den genomsnittliga låten</b> såg en kraftig ökning i volym under 90-talet. Detta kan bero på att digital ljudkompression blev mer och mer mainstream och tillät producenter att mixa låtar högre utan uppoffring. <br>&emsp;Kyle Devine, professor på Institutt for musikkvitenskap argumenterar för detta, då tidigare fysiska begränsningar på loudness i analoga format (såsom skarorna i vinylskivor, som behöver ta upp mer plats på skivan ju högre volymen stiger,) upphörde att existera i digitalt format. <br>&emsp;Detta skulle då leda till att producenter ökade loudness överlag, i stor del för att de nu kunde.</p>
+          <p class="emptyline"><br></p>
+          <p>Sedan 2016 har loudness <em>minskat något</em>, vilket kan bero på en <a class="to-streaming" href="streaming.html">En rad olika faktorer.</a></p>
+          </div>
         </div>
-      </article>
+        </article>
     </div>
   </body>
 
@@ -316,7 +327,8 @@
           gridLineWidth: 0,
           minPadding: 0.5,
           lineWidth: 1,
-          lineColor: "#cccccc"
+          lineColor: "#cccccc",
+          showFirstLabel: false
         },
         { // right y axis
           opposite: true,
@@ -328,7 +340,8 @@
             format: '{value}'
           },
           gridLineWidth: 0,
-          minPadding: 0.5
+          minPadding: 0.5,
+          showFirstLabel: false
         },
       ],
 

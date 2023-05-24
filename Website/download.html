@@ -9,6 +9,7 @@
       src="https://code.highcharts.com/highcharts.js"
       type="text/javascript"
     ></script>
+    <script src="https://code.highcharts.com/modules/annotations.js" type="text/javascript"></script>
     <script
       src="https://code.highcharts.com/modules/data.js"
       type="text/javascript"
@@ -20,6 +21,7 @@
 <!--     <link rel="stylesheet" href="highcharts.css" /> -->
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css?family=Space Mono" />
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono" rel="stylesheet">
   </head>
   <body>
     <div class="bckfwd">
@@ -149,16 +151,58 @@
       <p class="emptyline"><br /></p>
       <h2><b>Typ:</b><br />Digital</h2>
       <p class="emptyline"><br /></p>
-      <h2><b>Mest sålda album <br> under formatets starkaste år (2012):</b><br />Adele – 21</h2>
+      <h2><b>Mest sålda album <br> under formatets starkaste år (2012):</b><br/>Adele – 21</h2>
       <a class="scrollink" id="doublearrow" href="#arttitle">»</a>
     </div>
     <div class="divider"><hr></div>
-    <article class="article">
+    <div class="arrticle">
+      <article class="article">
         <h1 id="arttitle">Varför kraschade musikbranchen när nedladdningar blev mainstream?</h1>
+        <div class="artbody">
+          <div class="bigchart">
+            <div id="container-chart-2"></div>
+            <div class="buttons">
+            </div>
+          </div>
+        <div>
+          <h3>Musikbranschen var år 1999 på sin högsta punkt någonsin ekonomiskt.</h3>
+          <p class="emptyline"><br></p>
+          <p>Populariteten och enkelheten hos CD-skivor gjorde att det var mer vanligt än någonsin att äga en musiksamling, men ett annat, billigare alternativ hade bara några år tidigare börjat träda in i bilden. <br>&emsp; <em>MP3</em> är ett filformat som kan ta de digitala ljudvågorna som får plats på CD-skivor och komprimera dem till en fil som tar upp mycket lite utrymme på en hårddisk, och effektivt kan spridas via t.ex internet.</p>
+          <p class="emptyline"><br></p>
+          <figure class="artfig">
+            <blockquote>
+              "Since MP3 is an open standard, anyone can write a codec that will operate with the same files, and, equally important, no one can buy control of the standard, both of which have been critical to MP3 attaining a critical mass of users as well"
+            </blockquote>
+            <figcaption>
+              — Robert F. Easley, John G. Michel, och Sarv Devaraj., <cite class="cite cite-d"><a href="https://www.researchgate.net/publication/220426437_The_MP3_open_standard_and_the_music_industry%27s_response_to_Internet_piracy">The MP3 open standard and the music industry's response to Internet piracy</a></cite>
+            </figcaption>
+            <p class="emptyline"><br></p>
+            <p>Den största och mest populära metoden för nedladdning av musik online under MP3-formatets tidiga år var via <em>Napster</em>, en Peer-to-peer tjänst för delning av MP3-filer. På Napster kunde användare enkelt dela med sig av MP3-filer och direkt ladda ner från andra användares bibliotek, helt utan kostnad. På sin höjd hade Napster 80 miljoner användare, men, efter att ha existerat i bara två år, blev ägarna stämda av bl.a the Recording Industry's Association of America (RIAA) och var tvungna att stänga ner. (Lifewire, <cite class="cite cite-d"><a href="https://www.lifewire.com/history-of-napster-2438592">A Short History of Napster</a></cite>.)</p>
+            <p class="emptyline"><br></p>
+            <p> Det var inte förrän Apple lanserade sin onlinebaserade marknadsplats för musik, <em>iTunes,</em> som musikindustrin började dra in mer pengar igen, men skadan som MP3-formatet orsakade lämnade sår som finns kvar än idag.</p>
+          </figure>
+        </div>
+      </div>
     </article>
+    </div>
+    
   </body>
 
   <script class="minichart">
+    var annotationData = [{
+      x: 1999,
+      y: 22.904,
+      xOffset: 0,
+      yOffset: -30,
+      text: 'Napster'
+    },{
+      x: 2004,
+      y: 0.284,
+      xOffset: 0,
+      yOffset: -10,
+      text: 'iTunes' 
+    }];
+
     Highcharts.chart('container-chart', {
 
       data: {
@@ -209,7 +253,7 @@
         gridLineWidth: 0,
         minPadding: 0.5,
         labels: {
-          enabled: false,
+          enabled: true,
           format: '${value} bn'
         }
       },{
@@ -220,7 +264,7 @@
         tickWidth: 0,
         title: '',
         labels: {
-          enabled: false,
+          enabled: true,
         }
       }],
 
@@ -253,23 +297,142 @@
       },
 
       series: [{
-          name: 'CD',
-          color: "#cccccc",/* "#c1006f" */
-        }, {
-          name: 'Cassette',
-          color: "#cccccc",/* "#0009b5" */
-        }, {
-          name: 'Download',
-          lineWidth: 2,
-          color: "#3e0079",/* "#3e0079" */
-          zIndex: 1
-        }, {
-          name: 'Vinyl',
-          color: "#cccccc",/* "#a84800" */
-        }, {
-          name: 'Streaming',
-          color: "#cccccc",/* "#137000" */
+        name: 'CD',
+        color: "#cccccc",/* "#c1006f" */
+      }, {
+        name: 'Cassette',
+        color: "#cccccc",/* "#0009b5" */
+      }, {
+        name: 'Download',
+        lineWidth: 2,
+        color: "#3e0079",/* "#3e0079" */
+        zIndex: 1
+      }, {
+        name: 'Vinyl',
+        color: "#cccccc",/* "#a84800" */
+      }, {
+        name: 'Streaming',
+        color: "#cccccc",/* "#137000" */
       }]
-});
+    });
+
+    Highcharts.chart('container-chart-2', {
+
+      data: {
+        csvURL: '../data/RIAA Revenue Chart 1973-2021 Grouped v3 bn round3.csv',
+        beforeParse: function (csv) {
+          return csv.replace(/\n\n/g, '\n');
+        }
+      },
+
+      chart: {
+        events: {
+          load: function() {
+            var chart = this;
+
+            annotationData.forEach(function(annotation) {
+              chart.addAnnotation({
+                labels: [{
+                  type: 'label',
+                  point: {
+                    x: annotation.x,
+                    y: annotation.y,
+                    xAxis: 0,
+                    yAxis: 0
+                  },
+                  x: annotation.xOffset,
+                  y: annotation.yOffset,
+                  text: annotation.text
+                }]
+              });
+            });
+          },
+        }
+      },
+
+      title: {
+        text: '',
+      },
+
+      subtitle: {
+        text: '',
+      },
+
+      xAxis: {
+        visible: true,
+        lineWidth: 1,
+        lineColor: "#cccccc",
+        tickWidth: 0,
+        labels: {
+          enabled: true,
+        }
+      },
+
+      yAxis: {
+          title: {
+            text: 'Revenue'
+          },
+          labels: {
+            enabled: true,
+            format: '${value} bn'
+          },
+          gridLineWidth: 0,
+          minPadding: 0.5,
+          lineWidth: 0,
+          lineColor: "#cccccc",
+          showFirstLabel: false
+        },
+
+      legend: {
+        enabled: false,
+        align: 'left',
+        verticalAlign: 'top',
+        borderWidth: 0
+      },
+
+      tooltip: {
+          enabled: false
+      },
+
+      plotOptions: {
+        series: {
+          lineWidth: 1,
+          marker: {
+            enabled: false,
+          },
+          states: {
+            hover: {
+              enabled: false,
+            },
+            inactive: {
+              opacity: 1,
+            },
+          },
+        },
+      },
+
+      series: [{
+        name: 'CD',
+        lineWidth: 2,
+        color: "#c1006f",/* "#c1006f" */
+      }, {
+        name: 'Cassette',
+        color: "#cccccc",/* "#0009b5" */
+        visible: false
+      }, {
+        name: 'Download',
+        lineWidth: 2,
+        color: "#3e0079",/* "#3e0079" */
+        zIndex: 1
+      }, {
+        name: 'Vinyl',
+        color: "#cccccc",/* "#a84800" */
+        visible: false
+      }, {
+        name: 'Streaming',
+        color: "#cccccc",/* "#137000" */
+        visible: false
+      }]
+    });
   </script>
 </html>

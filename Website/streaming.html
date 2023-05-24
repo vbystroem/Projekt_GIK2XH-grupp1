@@ -9,6 +9,7 @@
       src="https://code.highcharts.com/highcharts.js"
       type="text/javascript"
     ></script>
+    <script src="https://code.highcharts.com/modules/annotations.js" type="text/javascript"></script>
     <script
       src="https://code.highcharts.com/modules/data.js"
       type="text/javascript"
@@ -20,6 +21,7 @@
 <!--     <link rel="stylesheet" href="highcharts.css" /> -->
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css?family=Space Mono" />
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono" rel="stylesheet">
   </head>
   <body>
     <div class="bckfwd">
@@ -151,7 +153,6 @@
       <article class="article">
         <h1 id="arttitle">Hur har streamingtjänster påverkat våra lyssnarvanor?</h1>
         <div class="artbody">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ante eros, viverra at sodales in, vehicula eu risus. Proin lorem odio, fermentum eu ultrices vitae, accumsan quis tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
           <div class="bigchart">
             <div id="container-mashup"></div>
             <div class="buttons">
@@ -163,18 +164,72 @@
               </button>
             </div>
           </div>
+          <div>
+            <p><b>Med lanseringen av</b> de första streamingtjänstera börjar stadigt en minskning i medellängden hos låtar från ca. 240 000 ms (4:00, 2005) till 191000 (3:10, 2022). Detta kan bero på hur streamingtjänster har byggt sin ekonomiska struktur, med att en “lyssning” endast räknas över 30 sekunder (Spotify, <cite class="cite cite-s"><a href="https://artists.spotify.com/help/article/how-we-count-streams">How we count streams</a></cite>). David Hesmondhalgh, Professor i Media, Music and Culture vid University of Leeds håller med:</p>
+            <p class="emptyline"><br></p>
+            <figure class="artfig">
+              <blockquote>
+                "Shortening of tracks is widely attributed to [music streaming platforms], or to the musical system in which they now play a central part, including the now widely known fact that a stream counts as a stream only if it is played for 30 seconds or more, and does not count at all if it is played for less than 30 seconds. A later Quartz headline, for example, proclaims that ‘the economics of streaming is making songs shorter’ (Kopf, 2019)."
+              </blockquote>
+              <figcaption>
+                — David Hesmondhalgh, <cite class="cite cite-s"><a href="https://journals.sagepub.com/doi/pdf/10.1177/17499755211019974">Streaming’s Effects on Music Culture: Old Anxieties and New Simplifications</a></cite>
+              </figcaption>
+            </figure>
+            <p class="emptyline"><br></p>
+            <h3>Hur påverkades ljudnivåerna av streamingtjänsterna?</h3>
+            <p class="emptyline"><br></p>
+            <p> <b>Sedan 2010 började</b> den genomsnittliga ljudnivån gå ner för första gången sedan introduktionen av digital ljudkompression. Detta överstämmer med lanseringen av de första streamingtjänsterna, som eventuellt började normalisera ljudnivåerna på alla låtar (Spotify, <cite class="cite cite-s"><a href="https://artists.spotify.com/help/article/loudness-normalization">Loudness Normalization</a></cite>). Varför denna normalisering görs i streamingtjänsterna kan bero på en generell negativ reaktion till det pågående s.k “Loudness War” som enligt vissa förvärrat ljudkvaliteten på musik överlag. Bland kritikerna av volymkriget är Peter Mew, senior mastering engineer på Abbey Road studios:</p>  
+            <p class="emptyline"><br></p>
+            <figure class="artfig">
+              <blockquote>"The brain is not geared to accept buzzing. The CDs induce a sense of fatigue in the listeners. It becomes psychologically tiring and almost impossible to listen to."</blockquote>
+              <figcaption>— Adam Sherwin, <cite class="cite cite-s"><a href="http://elliott-randall.com/2011/06/why-music-really-is-getting-louder/">Why music really is getting louder</a></cite></figcaption>
+            </figure>
+          </div>
         </div>
       </article>
     </div>
   </body>
 
   <script class="minichart">
+    var annotationData = [{
+      x: 2005,
+      y: 0.224,
+      xOffset: 0,
+      yOffset: -10,
+      text: 'Spotify'
+    }];
+
     Highcharts.chart('container-chart', {
 
       data: {
         csvURL: '../data/RIAA Revenue Chart 1973-2021 Grouped v3 bn round3.csv',
         beforeParse: function (csv) {
           return csv.replace(/\n\n/g, '\n');
+        }
+      },
+
+      chart: {
+        events: {
+          load: function() {
+            var chart = this;
+
+            annotationData.forEach(function(annotation) {
+              chart.addAnnotation({
+                labels: [{
+                  type: 'label',
+                  point: {
+                    x: annotation.x,
+                    y: annotation.y,
+                    xAxis: 0,
+                    yAxis: 0
+                  },
+                  x: annotation.xOffset,
+                  y: annotation.yOffset,
+                  text: annotation.text
+                }]
+              });
+            });
+          },
         }
       },
 
@@ -263,22 +318,22 @@
       },
 
       series: [{
-          name: 'CD',
-          color: "#cccccc",/* "#c1006f" */
-        }, {
-          name: 'Cassette',
-          color: "#cccccc",/* "#0009b5" */
-        }, {
-          name: 'Download',
-          color: "#cccccc",/* "#3e0079" */
-        }, {
-          name: 'Vinyl',
-          color: "#cccccc",/* "#a84800" */
-        }, {
-          name: 'Streaming',
-          color: "#137000",/* "#137000" */
-          lineWidth: 2,
-          zIndex: 1
+        name: 'CD',
+        color: "#cccccc",/* "#c1006f" */
+      }, {
+        name: 'Cassette',
+        color: "#cccccc",/* "#0009b5" */
+      }, {
+        name: 'Download',
+        color: "#cccccc",/* "#3e0079" */
+      }, {
+        name: 'Vinyl',
+        color: "#cccccc",/* "#a84800" */
+      }, {
+        name: 'Streaming',
+        color: "#137000",/* "#137000" */
+        lineWidth: 2,
+        zIndex: 1
       }]
     });
 
@@ -328,7 +383,8 @@
               gridLineWidth: 0,
               minPadding: 0.5,
               lineWidth: 0,
-              lineColor: "#cccccc"
+              lineColor: "#cccccc",
+              showFirstLabel: false
             },
             { // right y axis
               opposite: true,
@@ -342,7 +398,8 @@
               lineWidth: 0,
               lineColor: "#cccccc",
               gridLineWidth: 0,
-              minPadding: 0.5
+              minPadding: 0.5,
+              showFirstLabel: false
           }],
 
           legend: {
@@ -374,32 +431,32 @@
           },
 
           series: [{
-              name: 'CD',
-              color: "#cccccc",/* "#c1006f" */
-              visible: false
-            }, {
-              name: 'Cassette',
-              color: "#cccccc",/* "#0009b5" */
-              visible: false
-            }, {
-              name: 'Download',
-              color: "#cccccc",/* "#3e0079" */
-              visible: false
-            }, {
-              name: 'Vinyl',
-              color: "#cccccc",/* "#a84800" */
-              visible: false
-            }, {
-              name: 'Streaming',
-              color: "#137000",/* "#137000" */
-              lineWidth: 2,
-              zIndex: 1,
-            }, {
-              name: 'Length',
-              lineWidth: 2,
-              color: 'black',
-              zIndex: 2,
-              yAxis: 1
+            name: 'CD',
+            color: "#cccccc",/* "#c1006f" */
+            visible: false
+          }, {
+            name: 'Cassette',
+            color: "#cccccc",/* "#0009b5" */
+            visible: false
+          }, {
+            name: 'Download',
+            color: "#cccccc",/* "#3e0079" */
+            visible: false
+          }, {
+            name: 'Vinyl',
+            color: "#cccccc",/* "#a84800" */
+            visible: false
+          }, {
+            name: 'Streaming',
+            color: "#137000",/* "#137000" */
+            lineWidth: 2,
+            zIndex: 1,
+          }, {
+            name: 'Length',
+            lineWidth: 2,
+            color: 'black',
+            zIndex: 2,
+            yAxis: 1
           }]
         });
       } else if (val == 1) {
@@ -429,33 +486,33 @@
             },
           },
 
-          yAxis: [
-            { // left y axis
-              title: {
-                text: 'Revenue'
-              },
-              labels: {
-                enabled: true,
-                format: '${value} bn'
-              },
-              gridLineWidth: 0,
-              minPadding: 0.5,
-              lineWidth: 1,
-              lineColor: "#cccccc"
+          yAxis: [{ // left y axis
+            title: {
+              text: 'Revenue'
             },
-            { // right y axis
-              opposite: true,
-              title: {
-                text: 'Loudness'
-              },
-              labels: {
-                enabled: true,
-                format: '{value}s'
-              },
-              gridLineWidth: 0,
-              minPadding: 0.5
-            }
-          ],
+            labels: {
+              enabled: true,
+              format: '${value} bn'
+            },
+            gridLineWidth: 0,
+            minPadding: 0.5,
+            lineWidth: 1,
+            lineColor: "#cccccc",
+            showFirstLabel: false
+          },
+          { // right y axis
+            opposite: true,
+            title: {
+              text: 'Loudness'
+            },
+            labels: {
+              enabled: true,
+              format: '{value}s'
+            },
+            gridLineWidth: 0,
+            minPadding: 0.5,
+            showFirstLabel: false
+          }],
 
           legend: {
             enabled: false,
@@ -486,32 +543,32 @@
           },
 
           series: [{
-              name: 'CD',
-              color: "#cccccc",/* "#c1006f" */
-              visible: false
-            }, {
-              name: 'Cassette',
-              color: "#cccccc",/* "#0009b5" */
-              visible: false
-            }, {
-              name: 'Download',
-              color: "#cccccc",/* "#3e0079" */
-              visible: false
-            }, {
-              name: 'Vinyl',
-              color: "#cccccc",/* "#a84800" */
-              visible: false
-            }, {
-              name: 'Streaming',
-              color: "#137000",/* "#137000" */
-              lineWidth: 3,
-              zIndex: 1,
-            }, {
-              name: 'Length',
-              lineWidth: 3,
-              color: 'black',
-              zIndex: 2,
-              yAxis: 1
+            name: 'CD',
+            color: "#cccccc",/* "#c1006f" */
+            visible: false
+          }, {
+            name: 'Cassette',
+            color: "#cccccc",/* "#0009b5" */
+            visible: false
+          }, {
+            name: 'Download',
+            color: "#cccccc",/* "#3e0079" */
+            visible: false
+          }, {
+            name: 'Vinyl',
+            color: "#cccccc",/* "#a84800" */
+            visible: false
+          }, {
+            name: 'Streaming',
+            color: "#137000",/* "#137000" */
+            lineWidth: 3,
+            zIndex: 1,
+          }, {
+            name: 'Length',
+            lineWidth: 3,
+            color: 'black',
+            zIndex: 2,
+            yAxis: 1
           }]
         });
       }
