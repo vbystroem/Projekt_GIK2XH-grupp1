@@ -106,67 +106,38 @@
         }
       },
 
+      credits: {
+            enabled: false
+        },
+
       title: {
         text: '',
       },
 
       subtitle: {
-        text: '',
+        text: 'Källa: <cite class="cite"><a href="https://www.riaa.com/u-s-sales-database/">RIAA</a></cite>',
+        verticalAlign: "bottom",
+        style: {
+            textDecoration: 'underline'
+        },
+        align: 'right',
       },
 
       xAxis: {
-        visible: false,
-        lineWidth: 1,
-        lineColor: "#cccccc",
-        tickWidth: 0,
-        labels: {
-          enabled: true,
-          formatter: function() {
-            if (this.isLast || this.isFirst) {
-              return this.value
-            }
-          },
-          x: 11,
-          y: -250,
-          style: {
-            color: '#0009b5',
-            fontFamily: 'Space Mono'
-          },
-        },
-        tickInterval: 1
+        visible: false
       },
 
       yAxis: [{
         title: {
-          text: '' //'Revenue'
+          text: ''
         },
         visible: false,
-        lineWidth: 1,
-        lineColor: "#cccccc",
-        tickWidth: 0,
         gridLineWidth: 0,
         minPadding: 0.5,
-        labels: {
-          enabled: false,
-          format: '${value} bn'
-        }
-      },{
-        opposite: true,
-        visible: false,
-        lineWidth: 1,
-        lineColor: "#cccccc",
-        tickWidth: 0,
-        title: '',
-        labels: {
-          enabled: false,
-        }
       }],
 
       legend: {
-        enabled: false,
-        align: 'left',
-        verticalAlign: 'top',
-        borderWidth: 0
+        enabled: false
       },
 
       tooltip: {
@@ -192,21 +163,25 @@
 
       series: [{          
           name: 'CD',
-          color: "#cccccc",/* "#c1006f" */
+          color: "#464646",
+          dashStyle: 'Dash'
         }, {
           name: 'Cassette',
-          color: "#0009b5",/* "#0009b5" */
-          lineWidth: 2,
+          color: "#0009b5",
+          lineWidth: 3,
           zIndex: 1
         }, {
           name: 'Download',
-          color: "#cccccc",/* "#3e0079" */
+          color: "#464646",
+          dashStyle: 'Dash'
         }, {
           name: 'Vinyl',
-          color: "#cccccc",/* "#a84800" */
+          color: "#464646",
+          dashStyle: 'Dash'
         }, {
           name: 'Streaming',
-          color: "#cccccc",/* "#137000" */
+          color: "#464646",
+          dashStyle: 'Dash'
       }]
     });
   </script>

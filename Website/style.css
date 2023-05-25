@@ -46,31 +46,31 @@ body {
 .topinfo-cd {
     margin-left: 1vw;
     font-family: 'Space Mono';
-    color: #c1006f;
+    color: #890050;
 }
 
 .btn_r-cd {
-    fill: #c1006f;
+    fill: #890050;
 }
 
 .btn-cd {
     padding: 0.2rem;
-    stroke: #c1006f;
+    stroke: #890050;
 }
 
 .topinfo-v {
     margin-left: 1vw;
     font-family: 'Space Mono';
-    color: #a84800;
+    color: #7d3600;
 }
 
 .btn_r-v {
-    fill: #a84800;
+    fill: #7d3600;
 }
 
 .btn-v {
     padding: 0.2rem;
-    stroke: #a84800;
+    stroke: #7d3600;
 }
 
 .topinfo-d {
@@ -91,16 +91,16 @@ body {
 .topinfo-s {
     margin-left: 1vw;
     font-family: 'Space Mono';
-    color: #137000;
+    color: #0e5200;
 }
 
 .btn_r-s {
-    fill: #137000;
+    fill: #0e5200;
 }
 
 .btn-s {
     padding: 0.2rem;
-    stroke: #137000;
+    stroke: #0e5200;
 }
 
 .nav_btns {
@@ -125,11 +125,11 @@ a {
 
 .landing-title {
     color: #000;
-    width: 33vw;
+    width: 45vw;
 }
 
 .landing-title h1 {
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
     font-size: 1rem;
     font-weight: 600;
     line-height: 1rem;
@@ -146,17 +146,23 @@ a {
 }
 
 @keyframes color-change {
-    0% { color: #a84800; }
+    0% { color: #7d3600; }
     25% { color: #0009b5; }
-    50% { color: #c1006f; }
+    50% { color: #890050; }
     75% { color: #3e0079; }
-    100% { color: #137000; }
+    100% { color: #0e5200; }
   }
 
 .landing-title hr {
     width: 25vw;
     margin-top: 0;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+}
+
+.landing-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .landing-title p {
@@ -307,19 +313,23 @@ cite a {
 }
 
 .cite-c a {
-    color: #c1006f;
+    color: #890050;
+    background-color: #ffd3de;
 }
 
 .cite-s a {
-    color: #137000;
+    color: #0e5200;
+    background-color: #ffec00;
 }
 
 .cite-d {
     color: #3e0079;
+    background-color: #f7c2ec;
 }
 
 .to-streaming {
-    color: #137000;
+    color: #0e5200;
+    background-color: #ffec00;
     text-decoration: underline;
     font-family: 'IBM Plex Mono';
 }
@@ -337,9 +347,20 @@ cite a {
     height: 30vh;
 }
 
+#container-chart-2 {
+    width: 40vw;
+    height: 40vh;
+}
+
+#container-chart-main {
+    max-width: 60%;
+    height: 35vh;
+    align-self: center;
+}
+
 #container-mashup {
     width: 40vw;
-    height: 30vh;
+    height: 40vh;
 }
 
 #landing-1280 {
@@ -373,6 +394,12 @@ cite a {
         
     }
 
+    .landing-flex {
+        display: flex;
+        flex-direction: column;
+
+    }
+
     h2 {
         font-size: 1rem;
     }
@@ -397,7 +424,7 @@ cite a {
     .topinfo-v {
         margin-left: 0;
         font-family: 'Space Mono';
-        color: #a84800;
+        color: #7d3600;
     }
 
     .topinfo-v h1 {
@@ -419,7 +446,7 @@ cite a {
     .topinfo-cd {
         margin-left: 0;
         font-family: 'Space Mono'; 
-        color: #c1006f;
+        color: #890050;
     }
 
     .topinfo-cd h1 {
@@ -441,7 +468,7 @@ cite a {
     .topinfo-s {
         margin-left: 0;
         font-family: 'Space Mono';
-        color: #137000;
+        color: #0e5200;
     }
 
     .topinfo-s h1 {
@@ -498,13 +525,13 @@ cite a {
     }
     
     .cite-c a {
-        color: #c1006f;
+        color: #890050;
         font-style: normal;
         text-decoration: underline;
     }
     
     .to-streaming {
-        color: #137000;
+        color: #0e5200;
         text-decoration: underline;
         font-family: 'IBM Plex Mono';
     }
@@ -513,6 +540,18 @@ cite a {
         width: 100%;
         max-width: 100%;
         height: 30vh;
+    }
+
+    #container-chart-2 {
+        width: 100%;
+        height: 20%;
+    }
+
+    #container-chart-main {
+        width: 100%;
+        max-width: 100%;
+        height: 40vh;
+        align-self: center;
     }
 
     #container-mashup {
@@ -593,13 +632,25 @@ cite a {
 
     #container-chart {
         width: 100%;
-        max-width: 80%;
-        height: 30%;
-    }   
+        max-width: 100%;
+        height: 30vh;
+    }
+
+    #container-chart-2 {
+        width: 100%;
+        height: 20%;
+    }
+
+    #container-chart-main {
+        width: 100%;
+        max-width: 100%;
+        height: 40vh;
+        align-self: center;
+    }
 
     #container-mashup {
         width: 100%;
-        height: 30%;
+        height: 20%;
     }
 
     .artbody {
@@ -642,13 +693,13 @@ cite a {
     }
     
     .cite-c a {
-        color: #c1006f;
+        color: #890050;
         font-style: normal;
         text-decoration: underline;
     }
     
     .to-streaming {
-        color: #137000;
+        color: #0e5200;
         text-decoration: underline;
         font-family: 'IBM Plex Mono';
     }
@@ -659,11 +710,6 @@ cite a {
 
     #arttitle {
         font-size: 2rem;
-    }
-
-    .chart_drawing {
-        display: flex;
-        flex-direction: row;
     }
 
     .chart_drawing h1 {

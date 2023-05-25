@@ -174,10 +174,10 @@
               "Since MP3 is an open standard, anyone can write a codec that will operate with the same files, and, equally important, no one can buy control of the standard, both of which have been critical to MP3 attaining a critical mass of users as well"
             </blockquote>
             <figcaption>
-              — Robert F. Easley, John G. Michel, och Sarv Devaraj., <cite class="cite cite-d"><a href="https://www.researchgate.net/publication/220426437_The_MP3_open_standard_and_the_music_industry%27s_response_to_Internet_piracy">The MP3 open standard and the music industry's response to Internet piracy</a></cite>
+              — Robert F. Easley, John G. Michel, och Sarv Devaraj., <cite class="cite cite-d"><a href="https://www.researchgate.net/publication/220426437_The_MP3_open_standard_and_the_music_industry%27s_response_to_Internet_piracy" target="_blank">The MP3 open standard and the music industry's response to Internet piracy</a></cite>
             </figcaption>
             <p class="emptyline"><br></p>
-            <p>Den största och mest populära metoden för nedladdning av musik online under MP3-formatets tidiga år var via <em>Napster</em>, en Peer-to-peer tjänst för delning av MP3-filer. På Napster kunde användare enkelt dela med sig av MP3-filer och direkt ladda ner från andra användares bibliotek, helt utan kostnad. På sin höjd hade Napster 80 miljoner användare, men, efter att ha existerat i bara två år, blev ägarna stämda av bl.a the Recording Industry's Association of America (RIAA) och var tvungna att stänga ner. (Lifewire, <cite class="cite cite-d"><a href="https://www.lifewire.com/history-of-napster-2438592">A Short History of Napster</a></cite>.)</p>
+            <p>Den största och mest populära metoden för nedladdning av musik online under MP3-formatets tidiga år var via <em>Napster</em>, en Peer-to-peer tjänst för delning av MP3-filer. På Napster kunde användare enkelt dela med sig av MP3-filer och direkt ladda ner från andra användares bibliotek, helt utan kostnad. På sin höjd hade Napster 80 miljoner användare, men, efter att ha existerat i bara två år, blev ägarna stämda av bl.a the Recording Industry's Association of America (RIAA) och var tvungna att stänga ner. (Lifewire, <cite class="cite cite-d"><a href="https://www.lifewire.com/history-of-napster-2438592" target="_blank">A Short History of Napster</a></cite>.)</p>
             <p class="emptyline"><br></p>
             <p> Det var inte förrän Apple lanserade sin onlinebaserade marknadsplats för musik, <em>iTunes,</em> som musikindustrin började dra in mer pengar igen, men skadan som MP3-formatet orsakade lämnade sår som finns kvar än idag.</p>
           </figure>
@@ -212,67 +212,38 @@
         }
       },
 
+      credits: {
+            enabled: false
+        },
+
       title: {
         text: '',
       },
 
       subtitle: {
-        text: '',
+        text: '<cite class="cite"><a href="https://www.riaa.com/u-s-sales-database/">Källa: RIAA</a></cite>',
+        verticalAlign: "bottom",
+        style: {
+            textDecoration: 'underline'
+        },
+        align: 'right',
       },
 
       xAxis: {
-        visible: false,
-        lineWidth: 1,
-        lineColor: "#cccccc",
-        tickWidth: 0,
-        labels: {
-          enabled: true,
-          formatter: function() {
-            if (this.isLast || this.isFirst) {
-              return this.value
-            }
-          },
-          x: 11,
-          y: -250,
-          style: {
-            color: '#3e0079',
-            fontFamily: 'Space Mono'
-          },
-        },
-        tickInterval: 1
+        visible: false
       },
 
       yAxis: [{
         title: {
-          text: '' //'Revenue'
+          text: ''
         },
         visible: false,
-        lineWidth: 1,
-        lineColor: "#cccccc",
-        tickWidth: 0,
         gridLineWidth: 0,
         minPadding: 0.5,
-        labels: {
-          enabled: true,
-          format: '${value} bn'
-        }
-      },{
-        opposite: true,
-        visible: false,
-        lineWidth: 1,
-        lineColor: "#cccccc",
-        tickWidth: 0,
-        title: '',
-        labels: {
-          enabled: true,
-        }
       }],
 
       legend: {
-        enabled: false,
-        align: 'left',
-        verticalAlign: 'top',
-        borderWidth: 0
+        enabled: false
       },
 
       tooltip: {
@@ -298,28 +269,32 @@
 
       series: [{
         name: 'CD',
-        color: "#cccccc",/* "#c1006f" */
+        color: "#464646",
+        dashStyle: 'Dash',
       }, {
         name: 'Cassette',
-        color: "#cccccc",/* "#0009b5" */
+        color: "#464646",
+        dashStyle: 'Dash',
       }, {
         name: 'Download',
-        lineWidth: 2,
-        color: "#3e0079",/* "#3e0079" */
+        lineWidth: 3,
+        color: "#3e0079",
         zIndex: 1
       }, {
         name: 'Vinyl',
-        color: "#cccccc",/* "#a84800" */
+        color: "#464646",
+        dashStyle: 'Dash',
       }, {
         name: 'Streaming',
-        color: "#cccccc",/* "#137000" */
+        color: "#464646",
+        dashStyle: 'Dash',
       }]
     });
 
     Highcharts.chart('container-chart-2', {
 
       data: {
-        csvURL: '../data/RIAA Revenue Chart 1973-2021 Grouped v3 bn round3.csv',
+        csvURL: '../data/RIAA Revenue 1973-2021 cd down.csv',
         beforeParse: function (csv) {
           return csv.replace(/\n\n/g, '\n');
         }
@@ -349,19 +324,27 @@
           },
         }
       },
+      
+      credits: {
+            enabled: false
+        },
 
       title: {
         text: '',
       },
 
       subtitle: {
-        text: '',
+        text: 'Källa: <cite class="cite"><a href="https://www.riaa.com/u-s-sales-database/">RIAA</a></cite>',
+        verticalAlign: "bottom",
+        style: {
+            textDecoration: 'underline'
+        },
+        align: 'right',
       },
-
       xAxis: {
         visible: true,
         lineWidth: 1,
-        lineColor: "#cccccc",
+        lineColor: "#464646",
         tickWidth: 0,
         labels: {
           enabled: true,
@@ -370,25 +353,25 @@
 
       yAxis: {
           title: {
-            text: 'Revenue'
+            text: 'Intäkter (md)'
           },
           labels: {
             enabled: true,
-            format: '${value} bn'
+            format: '${value}'
           },
           gridLineWidth: 0,
           minPadding: 0.5,
           lineWidth: 0,
-          lineColor: "#cccccc",
           showFirstLabel: false
         },
 
-      legend: {
-        enabled: false,
-        align: 'left',
-        verticalAlign: 'top',
-        borderWidth: 0
-      },
+        legend: {
+            enabled: true,
+            align: 'left',
+            verticalAlign: 'top',
+            borderWidth: 0,
+            x: 90
+          },
 
       tooltip: {
           enabled: false
@@ -413,25 +396,14 @@
 
       series: [{
         name: 'CD',
-        lineWidth: 2,
-        color: "#c1006f",/* "#c1006f" */
-      }, {
-        name: 'Cassette',
-        color: "#cccccc",/* "#0009b5" */
-        visible: false
+        lineWidth: 1,
+        color: "#890050",
+        dashStyle: 'Dash',
       }, {
         name: 'Download',
-        lineWidth: 2,
-        color: "#3e0079",/* "#3e0079" */
+        lineWidth: 3,
+        color: "#3e0079",
         zIndex: 1
-      }, {
-        name: 'Vinyl',
-        color: "#cccccc",/* "#a84800" */
-        visible: false
-      }, {
-        name: 'Streaming',
-        color: "#cccccc",/* "#137000" */
-        visible: false
       }]
     });
   </script>

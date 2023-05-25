@@ -1,25 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <script
+      src="https://code.highcharts.com/highcharts.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://code.highcharts.com/modules/data.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://code.highcharts.com/modules/accessibility.js"
+      type="text/javascript"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css?family=Space Mono" />
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono" rel="stylesheet">
-</head>
-<body>
-    <div class="landing-title">
-        <h1>The Media is the Message</h1>
+    <link
+      href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="landing-flex">
+      <div class="landing-title">
+        <h1>The Medium is the Message</h1>
         <h2>Hur musiken påverkas av formatet</h2>
         <hr>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ante eros, viverra at sodales in, vehicula eu risus. Proin lorem odio, fermentum eu ultrices vitae, accumsan quis tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-
+        <p>
+          <em>"The Medium is the Message"</em> är en fras som myntades av
+          professor Marshall McLuhan i sitt inflytelserika verk
+          <em>Understanding Media,</em> publicerat 1964. McLuhan tyckte att
+          budskapet som försöker förmedlas med ett verk
+          <em>påverkas mer av formen det tar än själva innehållet</em>, då formen
+          vi upplever ett verk i kraftigt påverkar sättet vi ser på världen
+          (Wikipedia,
+          <cite>
+            <a
+              href="https://sv.wikipedia.org/wiki/Mediet_%C3%A4r_budskapet"
+              target="_blank"
+              >"Mediet är budskapet"</a>
+            </cite>). Den här webbplatsen använder detta koncept som ett ramverk för att
+          utforska musikindustrin, alltså hur musiken kan upplevas annorlunda
+          beroende på vilket format som den lyssnas genom.
+        </p>
+      </div>
+      <div id="container-chart-main"></div>
     </div>
-    
     <div class="landing_chart">
-        <!-- <a href="vinyl.html">
+      <!-- <a href="vinyl.html">
             <img id="vinyl" class="chartimg" src="../images/formats-vinyl.svg" style="width: 10vw; height: 22vh" alt="bild på en vinylskiva i fodral">
         </a>
         <a href="cassette.html">
@@ -34,9 +66,131 @@
         <a href="streaming.html">
             <img id="stream" class="chartimg" src="../images/formats-streaming.svg" style="width: 10vw; height: 13vh" alt="bild på en smartphone">
         </a> -->
-        <object id="landing-1280" type="image/svg+xml" data="../images/landing-1280.svg" alt=""></object>
-        <object id="landing-768" type="image/svg+xml" data="../images/landing-768.svg" alt=""></object>
-        <object id="landing-360" type="image/svg+xml" data="../images/landing-360.svg" alt=""></object>
+      <object
+        id="landing-1280"
+        type="image/svg+xml"
+        data="../images/landing-1280.svg"
+        alt=""
+      ></object>
+      <object
+        id="landing-768"
+        type="image/svg+xml"
+        data="../images/landing-768.svg"
+        alt=""
+      ></object>
+      <object
+        id="landing-360"
+        type="image/svg+xml"
+        data="../images/landing-360.svg"
+        alt=""
+      ></object>
     </div>
-</body> 
+  </body>
+  <script>
+    Highcharts.chart("container-chart-main", {
+      data: {
+        csvURL: "../data/RIAA Revenue Chart 1973-2021 Grouped v3 bn round3.csv",
+        beforeParse: function (csv) {
+          return csv.replace(/\n\n/g, "\n");
+        },
+      },
+
+      chart: {
+        type: 'area'
+      },
+
+      credits: {
+        enabled: false,
+      },
+
+      title: {
+        text: "",
+      },
+
+      subtitle: {
+        text: 'Källa: <cite class="cite"><a href="https://www.riaa.com/u-s-sales-database/">RIAA</a></cite>',
+        verticalAlign: "bottom",
+        style: {
+            textDecoration: 'underline'
+        },
+        align: 'right',
+      },
+
+      xAxis: {
+        visible: true,
+        color: "#464646",
+        tickWidth: 0,
+      },
+
+      yAxis: [
+        {
+          title: {
+            text: "Intäkter (md)",
+          },
+          visible: true,
+          gridLineWidth: 0,
+          minPadding: 0.5,
+          showFirstLabel: false,
+          labels: {
+            format: "${value}",
+          },
+        },
+      ],
+
+      legend: {
+        enabled: true,
+        align: "left",
+        verticalAlign: "top",
+        borderWidth: 0,
+        x: 90,
+      },
+
+      tooltip: {
+        enabled: false
+      },
+
+      plotOptions: {
+        series: {
+          lineWidth: 1,
+          marker: {
+            enabled: false,
+          },
+          states: {
+            hover: {
+              enabled: false,
+            },
+            inactive: {
+              opacity: 0.5,
+            },
+          },
+        },
+      },
+
+    series: [{
+        name: "CD",
+        color: "#890050",
+        lineWidth: 1,
+    },
+    {
+        name: "Cassette",
+        color: "#0009b5",
+        lineWidth: 1,
+    },
+    {
+        name: "Download",
+        color: "#3e0079",
+        lineWidth: 1,
+    },
+    {
+        name: "Vinyl",
+        color: "#7d3600",
+        lineWidth: 1,
+    },
+    {
+        name: "Streaming",
+        color: "#0e5200",
+        lineWidth: 1,
+    }]
+    });
+  </script>
 </html>
