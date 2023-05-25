@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -17,10 +17,10 @@
       src="https://code.highcharts.com/modules/accessibility.js"
       type="text/javascript"
     ></script>
-<!--     <link rel="stylesheet" href="highcharts.css" /> -->
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css?family=Space Mono" />
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'">
   </head>
   <body>
     <div class="bckfwd">
@@ -76,7 +76,7 @@
     </div>
     <div class="topinfo-c">
       <div class="chart_drawing">
-        <img class="svg" src="../images/sameheight-cassette.svg" alt="" />
+        <img class="svg" src="../images/sameheight-cassette.svg" alt="En illustration av ett kassettband" />
         <h1>Kassett</h1>
         <div id="container-chart"></div>
       </div>
@@ -90,8 +90,7 @@
       </h2>
       <p class="emptyline"><br> </p>
       <h2>
-        <b>Mest sålda album <br> under formatets starkaste år (1990):</b><br/>Janet Jackson –
-        Rhythm Nation 1814
+        <b>Mest sålda album <br> under formatets starkaste år (1990):</b><br/>Janet Jackson – Rhythm Nation 1814 <a href="https://en.wikipedia.org/wiki/List_of_Billboard_200_number-one_albums_of_1990" target="_blank"><u>(Wikipedia)</u></a>
       </h2>
     </div>
   </body>
@@ -106,6 +105,10 @@
         }
       },
 
+      accessibility: {
+        description: 'En graf som visar intäkter som musikformaten Vinyl, Kassett, Cd, Nedladdning och Streaming tjänat mellan 1973 och 2021. Cd har tjänat mest (ca. 51%, mestadels under 90-talet och tidiga 2000-talet), följt av Vinyl (ca. 18%, mestadels under 70-och-80-talen, med en liten återkomst i 2020-talet), sedan Kassett (ca. 17%, mestadels under 80-och-90-talen), Streaming (ca. 8%, från 2010-talet och framåt) och sist Nedladdning (ca. 5%, mestadels under 2000-talet). Endast linjen som representerar Kassett är fokuserad.'
+      },
+
       credits: {
             enabled: false
         },
@@ -115,7 +118,7 @@
       },
 
       subtitle: {
-        text: 'Källa: <cite class="cite"><a href="https://www.riaa.com/u-s-sales-database/">RIAA</a></cite>',
+        text: 'Källa: <cite class="cite"><a href="https://www.riaa.com/u-s-sales-database/" target="_blank">RIAA</a></cite>',
         verticalAlign: "bottom",
         style: {
             textDecoration: 'underline'

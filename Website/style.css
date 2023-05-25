@@ -34,6 +34,10 @@ body {
     color: #0009b5;
 }
 
+.btn_r:hover {
+    fill: grey;
+}
+
 .btn_r-c {
     fill: #0009b5;
 }
@@ -166,7 +170,7 @@ a {
 }
 
 .landing-title p {
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 }
 
 h1 {
@@ -257,7 +261,7 @@ hr {
     align-self: center;
 }
 
-.buttons button {
+.buttons-graph {
     margin: 1rem;
     margin-top: 0;
 }
@@ -312,6 +316,14 @@ cite a {
     text-decoration: underline;
 }
 
+cite a:hover {
+    color: white;
+}
+
+.to-streaming:hover {
+    color: white;
+}
+
 .cite-c a {
     color: #890050;
     background-color: #ffd3de;
@@ -352,7 +364,8 @@ cite a {
     height: 40vh;
 }
 
-#container-chart-main {
+.chart-container-main {
+    display: flex;
     max-width: 60%;
     height: 35vh;
     align-self: center;
@@ -376,6 +389,53 @@ cite a {
 #landing-360 {
     display: none;
     width: 100%;
+}
+
+.buttons-graph {
+    padding: 0.1rem 0.8rem;
+    border: 2px solid #000;
+    border-radius: 0.2rem;
+    font-family: 'Roboto Mono';
+}
+
+.buttons-graph:hover {
+    color: #0e5200;
+    border-color: #0e5200;
+}
+
+.topinfo-c h2 a {
+    color: #0009b5;
+}
+.topinfo-c h2 a:hover {
+    color: grey;
+}
+
+.topinfo-v h2 a {
+    color: #7d3600;
+}
+.topinfo-v h2 a:hover {
+    color: grey;
+}
+
+.topinfo-cd h2 a {
+    color: #890050;
+}
+.topinfo-cd h2 a:hover {
+    color: grey;
+}
+
+.topinfo-d h2 a {
+    color: #3e0079;
+}
+.topinfo-d h2 a {
+    color: grey;
+}
+
+.topinfo-s h2 a {
+    color: #0e5200;
+}
+.topinfo-s h2 a:hover {
+    color: grey;
 }
 
 @media screen and (max-width: 768px) {
@@ -547,11 +607,12 @@ cite a {
         height: 20%;
     }
 
-    #container-chart-main {
+    .chart-container-main {
         width: 100%;
         max-width: 100%;
         height: 40vh;
         align-self: center;
+        display: flex;
     }
 
     #container-mashup {
@@ -619,7 +680,7 @@ cite a {
     }
     
     .landing-title p {
-        margin-bottom: 4rem;
+        margin-bottom: 2rem;
     }
 
 }
@@ -641,11 +702,12 @@ cite a {
         height: 20%;
     }
 
-    #container-chart-main {
+    .chart-container-main {
         width: 100%;
         max-width: 100%;
         height: 40vh;
         align-self: center;
+        display: flex;
     }
 
     #container-mashup {
@@ -754,7 +816,7 @@ cite a {
     }
     
     .landing-title p {
-        margin-bottom: 4rem;
+        margin-bottom: 2rem;
     }
 }
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -17,13 +17,13 @@
       src="https://code.highcharts.com/modules/accessibility.js"
       type="text/javascript"
     ></script>
-<!--     <link rel="stylesheet" href="highcharts.css" /> -->
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css?family=Space Mono" />
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'">
   </head>
   <body>
-    <div class="bckfwd">
+    <header class="bckfwd">
       <a href="cassette.html">
         <button>
           <svg
@@ -136,43 +136,45 @@
           </svg>
         </button>
       </a>
-    </div>
-    <div class="topinfo-cd">
-      <div class="chart_drawing">
-        <img class="svg" src="../images/sameheight-cd.svg" alt="" />
-        <h1>CD</h1>
-        <div id="container-chart"></div>
-      </div>
-      <h1 class="h1-after">CD</h1>
-      <h2><b>Heyday:</b><br />1994 – 2007</h2>
-      <p class="emptyline"><br /></p>
-      <h2><b>Typ:</b><br />Digital</h2>
-      <p class="emptyline"><br /></p>
-      <h2><b>Mest sålda album <br> under formatets starkaste år (2000):</b><br />NSYNC – No Strings Attached</h2>
-      <a class="scrollink" id="doublearrow" href="#arttitle">»</a>
-    </div>
-    <div class="divider"><hr></div>
-    <div class="arrticle">
-      <article class="article">
-        <h1 class="cd-color" id="arttitle">Varför har volymen ökat över de senaste 50 åren?</h1>
-        <div class="artbody">
-          <div class="bigchart">
-            <div id="container-mashup"></div>
-          </div>
-        <div>
-          <figure class="artfig">
-            <blockquote>“[...] before digital audio formats, vinyl records and electromagnetic tape placed definite physical limitations on the amount of volume that a recording could exhibit (on a record, for example, louder sounds mean wider grooves, which means less playing time). The CD eliminated some of these concerns, and allowed for a wider dynamic range than previous playback media.” </blockquote>
-            <figcaption>— Kyle Devine, <cite class="cite-c"><a href="https://www.jstor.org/stable/24736755" target="_blank">Imperfect sound forever: loudness wars, listening formations and the history of sound reproduction</a></cite></figcaption>
-          </figure>
-          <p class="emptyline"><br></p>
-          <hr>
-          <p><b>Den genomsnittliga låten</b> såg en kraftig ökning i ljudnivå under 90-talet. Detta kan bero på att digital ljudkompression blev mer och mer mainstream och tillät producenter att mixa låtar högre utan uppoffring. <br>&emsp;Kyle Devine, professor på Institutt for musikkvitenskap argumenterar för detta, då tidigare fysiska begränsningar på ljudnivåer i analoga format (såsom skarorna i vinylskivor, som behöver ta upp mer plats på skivan ju högre ljudnivån stiger,) upphörde att existera i digitalt format. <br>&emsp;Detta skulle då leda till att producenter ökade ljudnivån överlag, i stor del för att de nu kunde.</p>
-          <p class="emptyline"><br></p>
-          <p>Sedan 2016 har ljudnivån <em>minskat något</em>, vilket kan bero på en <a class="to-streaming" href="streaming.html" target="_top">En rad olika faktorer.</a></p>
-          </div>
+    </header>
+    <main>
+      <div class="topinfo-cd">
+        <div class="chart_drawing">
+          <img class="svg" src="../images/sameheight-cd.svg" alt="En illustration av ett CD-fodral" />
+          <h1>CD</h1>
+          <div id="container-chart"></div>
         </div>
+        <h1 class="h1-after">CD</h1>
+        <h2><b>Heyday:</b><br />1994 – 2007</h2>
+        <p class="emptyline"><br /></p>
+        <h2><b>Typ:</b><br />Digital</h2>
+        <p class="emptyline"><br /></p>
+        <h2><b>Mest sålda album <br> under formatets starkaste år (2000):</b><br />NSYNC – No Strings Attached <a href="https://en.wikipedia.org/wiki/List_of_Billboard_200_number-one_albums_of_2000" target="_blank"><u>(Wikipedia)</u></a></h2>
+        <a role="button" class="scrollink" id="doublearrow" href="#arttitle">»</a>
+      </div>
+      <div class="divider"><hr></div>
+      <div class="arrticle">
+        <article class="article">
+          <h1 class="cd-color" id="arttitle">Varför har volymen ökat över de senaste 50 åren?</h1>
+          <div class="artbody">
+            <figure class="bigchart">
+              <div id="container-mashup"></div>
+            </figure>
+          <div>
+            <figure class="artfig">
+              <blockquote>“[...] before digital audio formats, vinyl records and electromagnetic tape placed definite physical limitations on the amount of volume that a recording could exhibit (on a record, for example, louder sounds mean wider grooves, which means less playing time). The CD eliminated some of these concerns, and allowed for a wider dynamic range than previous playback media.” </blockquote>
+              <figcaption>— Kyle Devine, <cite class="cite-c"><a href="https://www.jstor.org/stable/24736755" target="_blank">Imperfect sound forever: loudness wars, listening formations and the history of sound reproduction</a></cite></figcaption>
+            </figure>
+            <p class="emptyline"><br></p>
+            <hr>
+            <p><b>Den genomsnittliga låten</b> såg en kraftig ökning i ljudnivå under 90-talet. Detta kan bero på att digital ljudkompression blev mer och mer mainstream och tillät producenter att mixa låtar högre utan uppoffring. <br>&emsp;Kyle Devine, professor på Institutt for musikkvitenskap vid Universitetet i Oslo argumenterar för detta, då tidigare fysiska begränsningar på ljudnivåer i analoga format (såsom skarorna i vinylskivor, som behöver ta upp mer plats på skivan ju högre ljudnivån stiger,) upphörde att existera i digitalt format. <br>&emsp;Detta skulle då leda till att producenter ökade ljudnivån överlag, i stor del för att de nu kunde.</p>
+            <p class="emptyline"><br></p>
+            <p>Sedan 2016 har ljudnivån <em>minskat något</em>, vilket kan bero på en <a class="to-streaming" href="streaming.html" target="_top">En rad olika faktorer.</a></p>
+            </div>
+          </div>
         </article>
-    </div>
+      </div>
+    </main>
   </body>
 
   <script class="minichart">
@@ -185,6 +187,10 @@
         }
       },
 
+      accessibility: {
+        description: 'En graf som visar intäkter som musikformaten Vinyl, Kassett, Cd, Nedladdning och Streaming tjänat mellan 1973 och 2021. Cd har tjänat mest (ca. 51%, mestadels under 90-talet och tidiga 2000-talet), följt av Vinyl (ca. 18%, mestadels under 70-och-80-talen, med en liten återkomst i 2020-talet), sedan Kassett (ca. 17%, mestadels under 80-och-90-talen), Streaming (ca. 8%, från 2010-talet och framåt) och sist Nedladdning (ca. 5%, mestadels under 2000-talet). Endast linjen som representerar Cd är fokuserad.'
+      },
+
       credits: {
             enabled: false
         },
@@ -194,7 +200,7 @@
       },
 
       subtitle: {
-        text: 'Källa: <cite class="cite"><a href="https://www.riaa.com/u-s-sales-database/">RIAA</a></cite>',
+        text: 'Källa: <cite class="cite"><a href="https://www.riaa.com/u-s-sales-database/" target="_blank">RIAA</a></cite>',
         verticalAlign: "bottom",
         style: {
             textDecoration: 'underline'
@@ -272,6 +278,10 @@
           }
       },
 
+      accessibility: {
+        description: 'En graf som visar en linje för CD-formatets intäkter mellan 1973 och 2021 tillsammans med en lije över de generella ljudnivåerna mellan samma årtal. Allteftersom CD sålde mer och blev vanligare och vanligare ökade ljudnivån märkbart fram till mitten av 2010-talet.'
+      },
+
       credits: {
             enabled: false
         },
@@ -281,7 +291,7 @@
       },
 
       subtitle: {
-        text: 'Källa: <cite class="cite"><a href="https://www.riaa.com/u-s-sales-database/">RIAA</a></cite>, <cite class="cite"><a href="https://www.kaggle.com/datasets/yamaerenay/spotify-dataset-19212020-600k-tracks">Spotify Dataset 1921-2020 (Kaggle)</a></cite>',
+        text: 'Källa: <cite class="cite"><a href="https://www.riaa.com/u-s-sales-database/" target="_blank">RIAA</a></cite>, <cite class="cite"><a href="https://www.kaggle.com/datasets/yamaerenay/spotify-dataset-19212020-600k-tracks">Spotify Dataset 1921-2020 (Kaggle)</a></cite>',
         verticalAlign: "bottom",
         style: {
             textDecoration: 'underline'

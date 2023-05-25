@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>The Media is the Message - Hur musiken påverkas av formatet</title>
     <script
       src="https://code.highcharts.com/highcharts.js"
       type="text/javascript"
@@ -23,68 +23,59 @@
       href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono"
       rel="stylesheet"
     />
+    <link href="https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'">
   </head>
   <body>
-    <div class="landing-flex">
-      <div class="landing-title">
-        <h1>The Medium is the Message</h1>
-        <h2>Hur musiken påverkas av formatet</h2>
-        <hr>
-        <p>
-          <em>"The Medium is the Message"</em> är en fras som myntades av
-          professor Marshall McLuhan i sitt inflytelserika verk
-          <em>Understanding Media,</em> publicerat 1964. McLuhan tyckte att
-          budskapet som försöker förmedlas med ett verk
-          <em>påverkas mer av formen det tar än själva innehållet</em>, då formen
-          vi upplever ett verk i kraftigt påverkar sättet vi ser på världen
-          (Wikipedia,
-          <cite>
-            <a
-              href="https://sv.wikipedia.org/wiki/Mediet_%C3%A4r_budskapet"
-              target="_blank"
-              >"Mediet är budskapet"</a>
-            </cite>). Den här webbplatsen använder detta koncept som ett ramverk för att
-          utforska musikindustrin, alltså hur musiken kan upplevas annorlunda
-          beroende på vilket format som den lyssnas genom.
-        </p>
+    <main>
+      <div class="landing-flex">
+        <article class="landing-title">
+          <h1>The Medium is the Message</h1>
+          <h2>Hur musiken påverkas av formatet</h2>
+          <hr>
+          <p>
+            <em>"The Medium is the Message"</em> är en fras som myntades av
+            professor Marshall McLuhan i sitt inflytelserika verk
+            <em>Understanding Media,</em> publicerat 1964. McLuhan tyckte att
+            budskapet som försöker förmedlas med ett verk
+            <em>påverkas mer av formen det tar än själva innehållet</em>, då formen
+            vi konsumerar ett budskap genom kraftigt påverkar sättet vi ser på världen
+            (Wikipedia,
+            <cite>
+              <a
+                href="https://sv.wikipedia.org/wiki/Mediet_%C3%A4r_budskapet"
+                target="_blank"
+                >"Mediet är budskapet"</a>
+              </cite>). Den här webbplatsen använder detta koncept som ett ramverk för att
+            utforska musikindustrin, alltså hur musiken kan upplevas annorlunda
+            beroende på vilket format som den lyssnas genom.
+          </p>
+          <p>Klicka på ett av formaten nedan för att läsa mer:</p>
+        </article>
+        <figure class="chart-container-main">
+          <div id="container-chart-main"></div>
+        </figure>
       </div>
-      <div id="container-chart-main"></div>
-    </div>
-    <div class="landing_chart">
-      <!-- <a href="vinyl.html">
-            <img id="vinyl" class="chartimg" src="../images/formats-vinyl.svg" style="width: 10vw; height: 22vh" alt="bild på en vinylskiva i fodral">
-        </a>
-        <a href="cassette.html">
-            <img id="cassette" class="chartimg" src="../images/formats-cassette.svg" style="width: 10vw; height: 20vh" alt="bild på ett kassettband">
-        </a>
-        <a href="cd.html">
-            <img id="cd" class="chartimg" src="../images/formats-cd.svg" style="width: 20vw; height: 35vh" alt="bild på ett cd-fodral">
-        </a>
-        <a href="download.html">
-            <img id="download" class="chartimg" src="../images/formats-downloads.svg" style="width: 10vw; height: 10vh" alt="bild på ett usb-minne">
-        </a>
-        <a href="streaming.html">
-            <img id="stream" class="chartimg" src="../images/formats-streaming.svg" style="width: 10vw; height: 13vh" alt="bild på en smartphone">
-        </a> -->
+    </main>
+    <nav class="landing_chart" role="navigation">
       <object
         id="landing-1280"
         type="image/svg+xml"
         data="../images/landing-1280.svg"
-        alt=""
+        alt="en uppsättning illustrationer av musikformat i olika färger"
       ></object>
       <object
         id="landing-768"
         type="image/svg+xml"
         data="../images/landing-768.svg"
-        alt=""
+        alt="en uppsättning illustrationer av musikformat i olika färger"
       ></object>
       <object
         id="landing-360"
         type="image/svg+xml"
         data="../images/landing-360.svg"
-        alt=""
+        alt="en uppsättning illustrationer av musikformat i olika färger"
       ></object>
-    </div>
+    </nav>
   </body>
   <script>
     Highcharts.chart("container-chart-main", {
@@ -93,6 +84,10 @@
         beforeParse: function (csv) {
           return csv.replace(/\n\n/g, "\n");
         },
+      },
+
+      accessibility: {
+        description: 'Denna graf visar olika formats intäkter mellan 1973 och 2021. Vinyl var det dominerande formatet till mitten av 80-talet när kassetten tog över. I början av 90-talet tog CD över marknaden fram tills att nedladdning blev vanligare. Nedladdning steg stadigt till ca 2012 när streaming började bli allt populärare och streaming är idag det största formatet.'
       },
 
       chart: {
@@ -108,7 +103,7 @@
       },
 
       subtitle: {
-        text: 'Källa: <cite class="cite"><a href="https://www.riaa.com/u-s-sales-database/">RIAA</a></cite>',
+        text: 'Källa: <cite class="cite"><a href="https://www.riaa.com/u-s-sales-database/" target="_blank">RIAA</a></cite>',
         verticalAlign: "bottom",
         style: {
             textDecoration: 'underline'
