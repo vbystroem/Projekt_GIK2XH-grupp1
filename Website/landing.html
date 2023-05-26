@@ -4,26 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Media is the Message - Hur musiken påverkas av formatet</title>
-    <script
-      src="https://code.highcharts.com/highcharts.js"
-      type="text/javascript"
-    ></script>
-    <script
-      src="https://code.highcharts.com/modules/data.js"
-      type="text/javascript"
-    ></script>
-    <script
-      src="https://code.highcharts.com/modules/accessibility.js"
-      type="text/javascript"
-    ></script>
-    <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css?family=Space Mono" />
-    <link
-      href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono"
-      rel="stylesheet"
-    />
-    <link href="https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'">
+    <title>The Medium is the Message – Hur musiken påverkas av formatet</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:regular,italic,bold,bolditalic|Roboto+Mono:regular,italic,bold,bolditalic">
+
   </head>
   <body>
     <main>
@@ -40,23 +27,23 @@
             <em>påverkas mer av formen det tar än själva innehållet</em>, då formen
             vi konsumerar ett budskap genom kraftigt påverkar sättet vi ser på världen
             (Wikipedia,
-            <cite>
+            <cite class="cite-l">
               <a
                 href="https://sv.wikipedia.org/wiki/Mediet_%C3%A4r_budskapet"
                 target="_blank"
                 >"Mediet är budskapet"</a>
-              </cite>). Den här webbplatsen använder detta koncept som ett ramverk för att
+            </cite>). Den här webbplatsen använder detta koncept som ett ramverk för att
             utforska musikindustrin, alltså hur musiken kan upplevas annorlunda
             beroende på vilket format som den lyssnas genom.
           </p>
-          <p>Klicka på ett av formaten nedan för att läsa mer:</p>
+          <p>Klicka på ett av formaten för att läsa mer:</p>
         </article>
-        <figure class="chart-container-main">
+        <figure class="chart-container">
           <div id="container-chart-main"></div>
         </figure>
       </div>
     </main>
-    <nav class="landing_chart" role="navigation">
+    <nav class="landing_chart">
       <object
         id="landing-1280"
         type="image/svg+xml"
@@ -76,116 +63,115 @@
         alt="en uppsättning illustrationer av musikformat i olika färger"
       ></object>
     </nav>
-  </body>
-  <script>
-    Highcharts.chart("container-chart-main", {
-      data: {
-        csvURL: "../data/RIAA Revenue Chart 1973-2021 Grouped v3 bn round3.csv",
-        beforeParse: function (csv) {
-          return csv.replace(/\n\n/g, "\n");
-        },
-      },
-
-      accessibility: {
-        description: 'Denna graf visar olika formats intäkter mellan 1973 och 2021. Vinyl var det dominerande formatet till mitten av 80-talet när kassetten tog över. I början av 90-talet tog CD över marknaden fram tills att nedladdning blev vanligare. Nedladdning steg stadigt till ca 2012 när streaming började bli allt populärare och streaming är idag det största formatet.'
-      },
-
-      chart: {
-        type: 'area'
-      },
-
-      credits: {
-        enabled: false,
-      },
-
-      title: {
-        text: "",
-      },
-
-      subtitle: {
-        text: 'Källa: <cite class="cite"><a href="https://www.riaa.com/u-s-sales-database/" target="_blank">RIAA</a></cite>',
-        verticalAlign: "bottom",
-        style: {
-            textDecoration: 'underline'
-        },
-        align: 'right',
-      },
-
-      xAxis: {
-        visible: true,
-        color: "#464646",
-        tickWidth: 0,
-      },
-
-      yAxis: [
-        {
-          title: {
-            text: "Intäkter (md)",
+    <script>
+      Highcharts.chart("container-chart-main", {
+        data: {
+          csvURL: "../data/RIAA Revenue Chart 1973-2021 Grouped v3 bn round3.csv",
+          beforeParse: function (csv) {
+            return csv.replace(/\n\n/g, "\n");
           },
+        },
+
+        accessibility: {
+          enabled: true,
+          description: 'Denna graf visar olika formats intäkter mellan 1973 och 2021. Vinyl var det dominerande formatet till mitten av 80-talet när kassetten tog över. I början av 90-talet tog CD över marknaden fram tills att nedladdning blev vanligare. Nedladdning steg stadigt till ca 2012 när streaming började bli allt populärare och streaming är idag det största formatet.'
+        },
+
+        chart: {
+          type: 'area'
+        },
+
+        credits: {
+          enabled: false,
+        },
+
+        title: {
+          text: "",
+        },
+
+        subtitle: {
+          text: 'Källa: <cite class="cite cite-chart"><a href="https://www.riaa.com/u-s-sales-database/" target="_blank"><u>RIAA "U.S Sales Database"</u></a></cite>',
+          verticalAlign: "bottom",
+          
+          align: 'right',
+        },
+
+        xAxis: {
           visible: true,
-          gridLineWidth: 0,
-          minPadding: 0.5,
-          showFirstLabel: false,
-          labels: {
-            format: "${value}",
-          },
+          color: "#464646",
+          tickWidth: 0,
         },
-      ],
 
-      legend: {
-        enabled: true,
-        align: "left",
-        verticalAlign: "top",
-        borderWidth: 0,
-        x: 90,
-      },
-
-      tooltip: {
-        enabled: false
-      },
-
-      plotOptions: {
-        series: {
-          lineWidth: 1,
-          marker: {
-            enabled: false,
+        yAxis: [
+          {
+            title: {
+              text: "Intäkter (md)",
+            },
+            visible: true,
+            gridLineWidth: 0,
+            minPadding: 0.5,
+            showFirstLabel: false,
+            labels: {
+              format: "${value}",
+            },
           },
-          states: {
-            hover: {
+        ],
+
+        legend: {
+          enabled: true,
+          align: "left",
+          verticalAlign: "top",
+          borderWidth: 0,
+          x: 90,
+        },
+
+        tooltip: {
+          enabled: false
+        },
+
+        plotOptions: {
+          series: {
+            lineWidth: 1,
+            marker: {
               enabled: false,
             },
-            inactive: {
-              opacity: 0.5,
+            states: {
+              hover: {
+                enabled: false,
+              },
+              inactive: {
+                opacity: 0.5,
+              },
             },
           },
         },
-      },
 
-    series: [{
-        name: "CD",
-        color: "#890050",
-        lineWidth: 1,
-    },
-    {
-        name: "Cassette",
-        color: "#0009b5",
-        lineWidth: 1,
-    },
-    {
-        name: "Download",
-        color: "#3e0079",
-        lineWidth: 1,
-    },
-    {
-        name: "Vinyl",
-        color: "#7d3600",
-        lineWidth: 1,
-    },
-    {
-        name: "Streaming",
-        color: "#0e5200",
-        lineWidth: 1,
-    }]
-    });
-  </script>
+      series: [{
+          name: "CD",
+          color: "#890050",
+          lineWidth: 1,
+      },
+      {
+          name: "Cassette",
+          color: "#0009b5",
+          lineWidth: 1,
+      },
+      {
+          name: "Download",
+          color: "#3e0079",
+          lineWidth: 1,
+      },
+      {
+          name: "Vinyl",
+          color: "#7d3600",
+          lineWidth: 1,
+      },
+      {
+          name: "Streaming",
+          color: "#0e5200",
+          lineWidth: 1,
+      }]
+      });
+    </script>
+  </body>
 </html>

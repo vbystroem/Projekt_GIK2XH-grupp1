@@ -20,7 +20,6 @@ body {
     height: 30vh;
     width: auto;
     margin-bottom: 1rem;
-/*     padding: 1vw; */
 }
 
 .chart_drawing {
@@ -30,81 +29,32 @@ body {
 
 .topinfo-c {
     margin-left: 1vw;
-    font-family: 'Space Mono';
+    font-family: 'Space Grotesk';
     color: #0009b5;
-}
-
-.btn_r:hover {
-    fill: grey;
-}
-
-.btn_r-c {
-    fill: #0009b5;
-}
-
-.btn-c {
-    padding: 0.2rem;
-    stroke: #0009b5;
 }
 
 .topinfo-cd {
     margin-left: 1vw;
-    font-family: 'Space Mono';
+    font-family: 'Space Grotesk';
     color: #890050;
-}
-
-.btn_r-cd {
-    fill: #890050;
-}
-
-.btn-cd {
-    padding: 0.2rem;
-    stroke: #890050;
 }
 
 .topinfo-v {
     margin-left: 1vw;
-    font-family: 'Space Mono';
+    font-family: 'Space Grotesk';
     color: #7d3600;
-}
-
-.btn_r-v {
-    fill: #7d3600;
-}
-
-.btn-v {
-    padding: 0.2rem;
-    stroke: #7d3600;
 }
 
 .topinfo-d {
     margin-left: 1vw;
-    font-family: 'Space Mono';
+    font-family: 'Space Grotesk';
     color: #3e0079;
-}
-
-.btn_r-d {
-    fill: #3e0079;
-}
-
-.btn-d {
-    padding: 0.2rem;
-    stroke: #3e0079;
 }
 
 .topinfo-s {
     margin-left: 1vw;
-    font-family: 'Space Mono';
+    font-family: 'Space Grotesk';
     color: #0e5200;
-}
-
-.btn_r-s {
-    fill: #0e5200;
-}
-
-.btn-s {
-    padding: 0.2rem;
-    stroke: #0e5200;
 }
 
 .nav_btns {
@@ -114,11 +64,64 @@ body {
 }
 
 .bckfwd {
-    margin: 0 0 1vh 1vw;
+    font-family: 'Roboto Mono';
+    font-weight: 500;
+}
+
+.bckfwd a div, .bckfwd div{
+    border: 2px solid;
+    border-radius: 0.2rem;
+}
+
+.bckfwd a div:hover {
+    border-color: black;
+    color: black;
+}
+
+.color-d {
+    border-color: #3e0079;
+    color: #3e0079;
+}
+
+.color-v {
+    border-color: #7d3600;
+    color: #7d3600;
+}
+
+.color-cd {
+    border-color: #890050;
+    color: #890050;
+}
+
+.color-c {
+    border-color: #0009b5;
+    color: #0009b5;
+}
+
+.color-s {
+    border-color: #0e5200;
+    color: #0e5200;
+}
+
+.color-none {
+    border-color: lightgray;
+    color: lightgray;
+}
+
+.arrow {
+    padding: 0.1rem 0.5rem;
+}
+
+.start {
+    padding: 0.1rem 0.8rem;
+    margin: 0 0.5rem;
+}
+
+div {
+    all: unset;
 }
 
 button {
-    all: unset;
     cursor: pointer;
 }
 
@@ -135,13 +138,13 @@ a {
 .landing-title h1 {
     margin-bottom: 0.5rem;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1rem;
-    font-family: 'Space Mono';
+    font-family: 'Space Grotesk';
 }
 
 .landing-title h2 {
-    font-family: 'Space Mono';
+    font-family: 'Space Grotesk';
     font-size: 1rem;
     font-weight: 300;
     line-height: 75%;
@@ -176,16 +179,19 @@ a {
 h1 {
     margin-bottom: 2rem;
     font-size: 3rem;
-    font-weight: 600;
-    font-family: 'Space Mono';
+    font-weight: 700;
+    font-family: 'Space Grotesk';
     line-height: 4rem;
 }
 
 h2 {
     font-weight: 300;
-    font-family: 'Space Mono';
-    
+    font-family: 'Space Grotesk';
     font-size: 1rem;
+}
+
+h2 b {
+    font-weight: 700;
 }
 
 p {
@@ -202,9 +208,13 @@ b {
 }
 
 .article {
-    font-family: 'Space Mono';
+    font-family: 'Space Grotesk';
     color: #000;
     width: 70vw;   
+}
+
+.article h2 {
+    font-family: 'Space Grotesk';
 }
 
 .arrticle {
@@ -257,6 +267,12 @@ hr {
     margin: 4rem 0;
 }
 
+#container-mashup,
+#container-chart-2 {
+    width: 40vw;
+    height: 40vh;
+}
+
 .buttons {
     align-self: center;
 }
@@ -281,6 +297,12 @@ hr {
 }
 
 .article p {
+    width: 25vw;
+}
+
+.article p b {
+    font-family: 'Space Grotesk';
+    font-weight: 700;
     width: 25vw;
 }
 
@@ -317,33 +339,56 @@ cite a {
 }
 
 cite a:hover {
-    color: white;
+    color: black;
+}
+
+.cite-chart:hover {
+    color: blue;
 }
 
 .to-streaming:hover {
-    color: white;
+    color: black;
 }
 
 .cite-c a {
     color: #890050;
-    background-color: #ffd3de;
 }
 
 .cite-s a {
     color: #0e5200;
-    background-color: #ffec00;
 }
 
 .cite-d {
     color: #3e0079;
-    background-color: #f7c2ec;
+}
+
+.cite-l a {
+    color: black;
 }
 
 .to-streaming {
     color: #0e5200;
-    background-color: #ffec00;
+    font-style: italic;
     text-decoration: underline;
     font-family: 'IBM Plex Mono';
+}
+
+.highcharts-subtitle {
+    text-decoration: none;
+    color: #444444;
+}
+
+.highcharts-subtitle:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.cite-chart {
+    text-decoration: underline;
+}
+
+.cite-chart text tspan:hover {
+    color: black;
 }
 
 .landscape {
@@ -355,25 +400,18 @@ cite a:hover {
 }
 
 #container-chart {
-    max-width: 60%;
+    max-width: 50vw;
     height: 30vh;
 }
 
-#container-chart-2 {
-    width: 40vw;
+#container-chart-main {
+    max-width: 50vw;
     height: 40vh;
 }
 
-.chart-container-main {
+.chart-container {
     display: flex;
-    max-width: 60%;
-    height: 35vh;
     align-self: center;
-}
-
-#container-mashup {
-    width: 40vw;
-    height: 40vh;
 }
 
 #landing-1280 {
@@ -392,6 +430,7 @@ cite a:hover {
 }
 
 .buttons-graph {
+    background-color: #fff;
     padding: 0.1rem 0.8rem;
     border: 2px solid #000;
     border-radius: 0.2rem;
@@ -407,35 +446,35 @@ cite a:hover {
     color: #0009b5;
 }
 .topinfo-c h2 a:hover {
-    color: grey;
+    color: black;
 }
 
 .topinfo-v h2 a {
     color: #7d3600;
 }
 .topinfo-v h2 a:hover {
-    color: grey;
+    color: black;
 }
 
 .topinfo-cd h2 a {
     color: #890050;
 }
 .topinfo-cd h2 a:hover {
-    color: grey;
+    color: black;
 }
 
 .topinfo-d h2 a {
     color: #3e0079;
 }
 .topinfo-d h2 a {
-    color: grey;
+    color: black;
 }
 
 .topinfo-s h2 a {
     color: #0e5200;
 }
 .topinfo-s h2 a:hover {
-    color: grey;
+    color: black;
 }
 
 @media screen and (max-width: 768px) {
@@ -452,6 +491,10 @@ cite a:hover {
         line-height: 2.5rem;
         text-align: left;
         
+    }
+
+    .bckfwd {
+        margin-bottom: 2vh;
     }
 
     .landing-flex {
@@ -483,7 +526,7 @@ cite a:hover {
     
     .topinfo-v {
         margin-left: 0;
-        font-family: 'Space Mono';
+        font-family: 'Space Grotesk';
         color: #7d3600;
     }
 
@@ -494,7 +537,7 @@ cite a:hover {
 
     .topinfo-c {
         margin-left: 0;
-        font-family: 'Space Mono';
+        font-family: 'Space Grotesk';
         color: #0009b5;
     }
     
@@ -505,7 +548,7 @@ cite a:hover {
 
     .topinfo-cd {
         margin-left: 0;
-        font-family: 'Space Mono'; 
+        font-family: 'Space Grotesk'; 
         color: #890050;
     }
 
@@ -516,7 +559,7 @@ cite a:hover {
 
     .topinfo-d {
         margin-left: 0;
-        font-family: 'Space Mono';
+        font-family: 'Space Grotesk';
         color: #3e0079;
     }
 
@@ -527,7 +570,7 @@ cite a:hover {
 
     .topinfo-s {
         margin-left: 0;
-        font-family: 'Space Mono';
+        font-family: 'Space Grotesk';
         color: #0e5200;
     }
 
@@ -596,28 +639,15 @@ cite a:hover {
         font-family: 'IBM Plex Mono';
     }
     
-    #container-chart {
-        width: 100%;
-        max-width: 100%;
-        height: 30vh;
-    }
-
+    #container-mashup,
     #container-chart-2 {
         width: 100%;
-        height: 20%;
     }
 
-    .chart-container-main {
-        width: 100%;
+    #container-chart-main,
+    #container-chart {
+        width: 80vw;
         max-width: 100%;
-        height: 40vh;
-        align-self: center;
-        display: flex;
-    }
-
-    #container-mashup {
-        width: 100%;
-        height: 20%;
     }
 
     .article {
@@ -626,6 +656,7 @@ cite a:hover {
 
     #arttitle {
         font-size: 2rem;
+        font-weight: 700;
     }
 
     .chart_drawing {
@@ -662,11 +693,11 @@ cite a:hover {
         width: 100%;
         font-size: 1rem;
         font-weight: 600;
-        font-family: 'Space Mono';
+        font-family: 'Space Grotesk';
     }
     
     .landing-title h2 {
-        font-family: 'Space Mono';
+        font-family: 'Space Grotesk';
         font-size: 1rem;
         font-weight: 300;
         margin-bottom: 1rem;
@@ -691,28 +722,14 @@ cite a:hover {
         line-height: 2rem;
     }
 
+    #container-mashup,
+    #container-chart-2,
     #container-chart {
         width: 100%;
-        max-width: 100%;
-        height: 30vh;
     }
 
-    #container-chart-2 {
-        width: 100%;
-        height: 20%;
-    }
-
-    .chart-container-main {
-        width: 100%;
-        max-width: 100%;
-        height: 40vh;
-        align-self: center;
-        display: flex;
-    }
-
-    #container-mashup {
-        width: 100%;
-        height: 20%;
+    #container-chart-main {
+        width: 40vw;
     }
 
     .artbody {
@@ -772,6 +789,7 @@ cite a:hover {
 
     #arttitle {
         font-size: 2rem;
+        font-style: bold;
     }
 
     .chart_drawing h1 {
@@ -798,11 +816,11 @@ cite a:hover {
     .landing-title h1 {
         font-size: 1rem;
         font-weight: 600;
-        font-family: 'Space Mono';
+        font-family: 'Space Grotesk';
     }
     
     .landing-title h2 {
-        font-family: 'Space Mono';
+        font-family: 'Space Grotesk';
         font-size: 1rem;
         font-weight: 300;
         margin-bottom: 1rem;
@@ -827,22 +845,15 @@ cite a:hover {
     .artbody {
         width: 100%;
     }
-
 }
 
 @media screen and (min-width: 880px) and (max-width: 1200px) {
     .landing-title p {
         width: 54ch;
+        z-index: 1;
     }
 
     .article p, .article blockquote, .article figcaption, .article h3{
         width: 75%;
     }
-
-
-    
-
-    
-
-    
 }
