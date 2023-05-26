@@ -14,9 +14,10 @@
 
   </head>
   <body>
+    <a class="skiplink color-d" href="#arttitle">» Skip to content</a>
     <nav class="bckfwd">
       <a href="cd.html" aria-label="Back">
-        <div class="color-d arrow">&#60</div>
+        <div class="color-d arrow">&#60;</div>
       </a>
 
       <a href="landing.html" aria-label="Start">
@@ -24,11 +25,11 @@
       </a>
 
       <a href="streaming.html" aria-label="Forward">
-        <div class="color-d arrow">&#62</div>
+        <div class="color-d arrow">&#62;</div>
       </a>
     </nav>
-    <main>
-      <div class="topinfo-d">
+    <main id="main">
+      <section class="topinfo-d">
         <div class="chart_drawing">
           <img class="svg portrait" src="../images/sameheight-downloads.svg" alt="En illustration av en USB-sticka" />
           <img class="svg landscape" src="../images/formats-downloads-landscape.svg" alt="En illustration av en USB-sticka">
@@ -44,7 +45,7 @@
         <p class="emptyline"><br></p>
         <h2><b>Mest sålda album <br> under formatets starkaste år (2012):</b><br/>Adele – 21 <a href="https://en.wikipedia.org/wiki/List_of_Billboard_200_number-one_albums_of_2012" target="_blank"><br><u>(Wikipedia, "List of Billboard 200 number-one albums of 2012")</u></a></h2>
         <a role="button" class="scrollink" href="#arttitle" id="doublearrow">»</a>
-      </div>
+      </section>
       <div class="divider"><hr></div>
       <div class="arrticle">
         <article class="article">
@@ -65,11 +66,11 @@
                 <figcaption>
                   — Robert F. Easley, John G. Michel, och Sarv Devaraj., <cite class="cite cite-d"><a href="https://www.researchgate.net/publication/220426437_The_MP3_open_standard_and_the_music_industry%27s_response_to_Internet_piracy" target="_blank">The MP3 open standard and the music industry's response to Internet piracy</a></cite>
                 </figcaption>
-                <p class="emptyline"><br></p>
-                <p>Den största och mest populära metoden för nedladdning av musik online under MP3-formatets tidiga år var via <em>Napster</em>, en P2P, eller peer-to-peer tjänst, där användare kan dela filer direkt med varandra. På Napster kunde användare enkelt dela med sig av MP3-filer och direkt ladda ner från andra användares bibliotek, helt utan kostnad. På sin höjd hade Napster 80 miljoner användare, men, efter att ha existerat i bara två år, blev ägarna stämda av bl.a the Recording Industry's Association of America (RIAA) och var tvungna att stänga ner. (Lifewire, <cite class="cite cite-d"><a href="https://www.lifewire.com/history-of-napster-2438592" target="_blank">A Short History of Napster</a></cite>.)</p>
-                <p class="emptyline"><br></p>
-                <p> Det var inte förrän Apple lanserade sin onlinebaserade marknadsplats för musik, <em>iTunes,</em> som musikindustrin började dra in mer pengar igen, men Napster och MP3-formatet hade redan lämnat spår som märks av än idag.</p>
               </figure>
+              <p class="emptyline"><br></p>
+              <p>Den största och mest populära metoden för nedladdning av musik online under MP3-formatets tidiga år var via <em>Napster</em>, en P2P, eller peer-to-peer tjänst, där användare kan dela filer direkt med varandra. På Napster kunde användare enkelt dela med sig av MP3-filer och direkt ladda ner från andra användares bibliotek, helt utan kostnad. På sin höjd hade Napster 80 miljoner användare, men, efter att ha existerat i bara två år, blev ägarna stämda av bl.a the Recording Industry's Association of America (RIAA) och var tvungna att stänga ner. (Lifewire, <cite class="cite cite-d"><a href="https://www.lifewire.com/history-of-napster-2438592" target="_blank">A Short History of Napster</a></cite>.)</p>
+              <p class="emptyline"><br></p>
+              <p> Det var inte förrän Apple lanserade sin onlinebaserade marknadsplats för musik, <em>iTunes,</em> som musikindustrin började dra in mer pengar igen, men Napster och MP3-formatet hade redan lämnat spår som märks av än idag.</p>
             </div>
           </div>
         </article>
@@ -160,23 +161,38 @@
           name: 'CD',
           color: "#464646",
           dashStyle: 'Dash',
+          accessibility: {
+            description: 'Det här är inkomsten för CD mellan 1973 och 2021.'
+          }
         }, {
-          name: 'Cassette',
+          name: 'Kassett',
           color: "#464646",
           dashStyle: 'Dash',
+          accessibility: {
+            description: 'Det här är inkomsten för kassetter mellan 1973 och 2021.'
+          }
         }, {
-          name: 'Download',
+          name: 'Nedladdning',
           lineWidth: 3,
           color: "#3e0079",
-          zIndex: 1
+          zIndex: 1,
+          accessibility: {
+            description: 'Det här är inkomsten för nedladdningar mellan 1973 och 2021.'
+          }
         }, {
           name: 'Vinyl',
           color: "#464646",
           dashStyle: 'Dash',
+          accessibility: {
+            description: 'Det här är inkomsten för vinyler mellan 1973 och 2021.'
+          }
         }, {
           name: 'Streaming',
           color: "#464646",
           dashStyle: 'Dash',
+          accessibility: {
+            description: 'Det här är inkomsten för streaming mellan 1973 och 2021.'
+          }
         }]
       });
 
@@ -290,11 +306,17 @@
           lineWidth: 1,
           color: "#890050",
           dashStyle: 'Dash',
+          accessibility: {
+            description: 'Det här är inkomsten för CD mellan 1973 och 2021.'
+          }
         }, {
-          name: 'Download',
+          name: 'Nedladdning',
           lineWidth: 3,
           color: "#3e0079",
-          zIndex: 1
+          zIndex: 1,
+          accessibility: {
+            description: 'Det här är inkomsten för nedladdingar mellan 1973 och 2021.'
+          }
         }]
       });
     </script>

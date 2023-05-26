@@ -13,9 +13,10 @@
 
   </head>
   <body>
+    <a class="skiplink color-c" tabindex="-1" href="#arttitle">» Skip to content</a>
     <nav class="bckfwd">
       <a href="vinyl.html" aria-label="Back">
-        <div class="color-c arrow">&#60</div>
+        <div class="color-c arrow">&#60;</div>
       </a>
 
       <a href="landing.html" aria-label="Start">
@@ -23,30 +24,32 @@
       </a>
 
       <a href="cd.html" aria-label="Forward">
-        <div class="color-c arrow">&#62</div>
+        <div class="color-c arrow">&#62;</div>
       </a>
     </nav>
-    <div class="topinfo-c">
-      <div class="chart_drawing">
-        <img class="svg" src="../images/sameheight-cassette.svg" alt="En illustration av ett kassettband">
-        <h1>Kassett</h1>
-        <figure class="chart-container">
-          <div id="container-chart" role=""></div>
-        </figure>
-      </div>
-      <h1 class="h1-after">Kassett</h1>
-      <h2>
-        <b>Heyday:</b><br>1987 – 1992
-      </h2>
-      <p class="emptyline"> <br></p>
-      <h2>
-        <b>Typ:</b><br>Analog
-      </h2>
-      <p class="emptyline"><br> </p>
-      <h2>
-        <b>Mest sålda album <br> under formatets starkaste år (1990):</b><br>Janet Jackson – Rhythm Nation 1814 <a href="https://en.wikipedia.org/wiki/List_of_Billboard_200_number-one_albums_of_1990" target="_blank"><br><u>(Wikipedia, "List of Billboard 200 number-one albums of 1990")</u></a>
-      </h2>
-    </div>
+    <main>
+      <section class="topinfo-c">
+        <div class="chart_drawing">
+          <img class="svg" src="../images/sameheight-cassette.svg" alt="En illustration av ett kassettband">
+          <h1>Kassett</h1>
+          <figure class="chart-container">
+            <div id="container-chart"></div>
+          </figure>
+        </div>
+        <h1 class="h1-after">Kassett</h1>
+        <h2>
+          <b>Heyday:</b><br>1987 – 1992
+        </h2>
+        <p class="emptyline"> <br></p>
+        <h2>
+          <b>Typ:</b><br>Analog
+        </h2>
+        <p class="emptyline"><br> </p>
+        <h2>
+          <b>Mest sålda album <br> under formatets starkaste år (1990):</b><br>Janet Jackson – Rhythm Nation 1814 <a href="https://en.wikipedia.org/wiki/List_of_Billboard_200_number-one_albums_of_1990" target="_blank"><br><u>(Wikipedia, "List of Billboard 200 number-one albums of 1990")</u></a>
+        </h2>
+      </section>
+    </main>
     <script>
       Highcharts.chart('container-chart', {
 
@@ -117,24 +120,39 @@
         series: [{          
             name: 'CD',
             color: "#464646",
-            dashStyle: 'Dash'
+            dashStyle: 'Dash',
+            accessibility: {
+              description: 'Det här är inkomsten för CD mellan 1973 och 2021.'
+            }
           }, {
-            name: 'Cassette',
+            name: 'Kassett',
             color: "#0009b5",
             lineWidth: 3,
-            zIndex: 1
+            zIndex: 1,
+            accessibility: {
+              description: 'Det här är inkomsten för kassetter mellan 1973 och 2021.'
+            }
           }, {
-            name: 'Download',
+            name: 'Nedladdning',
             color: "#464646",
-            dashStyle: 'Dash'
+            dashStyle: 'Dash',
+            accessibility: {
+              description: 'Det här är inkomsten för nedladdningar mellan 1973 och 2021.'
+            }
           }, {
             name: 'Vinyl',
             color: "#464646",
-            dashStyle: 'Dash'
+            dashStyle: 'Dash',
+            accessibility: {
+              description: 'Det här är inkomsten för vinyler mellan 1973 och 2021.'
+            }
           }, {
             name: 'Streaming',
             color: "#464646",
-            dashStyle: 'Dash'
+            dashStyle: 'Dash',
+            accessibility: {
+              description: 'Det här är inkomsten för streaming mellan 1973 och 2021.'
+            }
         }]
       });
     </script>

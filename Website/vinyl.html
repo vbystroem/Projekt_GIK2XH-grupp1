@@ -13,32 +13,35 @@
 
   </head>
   <body>
+    <a class="skiplink color-v" tabindex="-1" href="#arttitle">» Skip to content</a>
     <nav class="bckfwd">
-        <div class="color-none arrow">&#60</div>
+        <div class="color-none arrow">&#60;</div>
 
       <a href="landing.html" aria-label="Start">
         <div class="color-v start">Start</div>
       </a>
 
       <a href="cassette.html" aria-label="Forward">
-        <div class="color-v arrow">&#62</div>
+        <div class="color-v arrow">&#62;</div>
       </a>
     </nav>
-    <div class="topinfo-v">
-      <div class="chart_drawing">
-        <img class="svg" src="../images/sameheight-vinyl.svg" alt="En illustration av en Lp-skiva i fodral">
-        <h1>Vinyl</h1>
-        <figure class="chart-container">
-          <div id="container-chart"></div>
-        </figure>
-      </div>
-      <h1 class="h1-after">Vinyl</h1>
-      <h2><b>Heyday:</b><br>1976 – 1984</h2>
-      <p class="emptyline"><br></p>
-      <h2><b>Typ:</b><br>Analog</h2>
-      <p class="emptyline"><br></p>
-      <h2><b>Mest sålda album <br> under formatets starkaste år (1978):</b><br>Bee Gees and Various Artists – Saturday Night Fever <a href="https://en.wikipedia.org/wiki/List_of_Billboard_200_number-one_albums_of_1978" target="_blank"><br><u>(Wikipedia, "List of Billboard 200 number-one albums of 1978")</u></a></h2>
-    </div>
+    <main>
+      <section class="topinfo-v">
+        <div class="chart_drawing">
+          <img class="svg" src="../images/sameheight-vinyl.svg" alt="En illustration av en Lp-skiva i fodral">
+          <h1>Vinyl</h1>
+          <figure class="chart-container">
+            <div id="container-chart"></div>
+          </figure>
+        </div>
+        <h1 class="h1-after">Vinyl</h1>
+        <h2><b>Heyday:</b><br>1976 – 1984</h2>
+        <p class="emptyline"><br></p>
+        <h2><b>Typ:</b><br>Analog</h2>
+        <p class="emptyline"><br></p>
+        <h2><b>Mest sålda album <br> under formatets starkaste år (1978):</b><br>Bee Gees and Various Artists – Saturday Night Fever <a href="https://en.wikipedia.org/wiki/List_of_Billboard_200_number-one_albums_of_1978" target="_blank"><br><u>(Wikipedia, "List of Billboard 200 number-one albums of 1978")</u></a></h2>
+      </section>
+    </main>
     <script>
       Highcharts.chart("container-chart", {
         data: {
@@ -49,7 +52,7 @@
         },
 
         accessibility: {
-          enabled: true,
+          
           description: 'En graf som visar intäkter som musikformaten Vinyl, Kassett, Cd, Nedladdning och Streaming tjänat mellan 1973 och 2021. Cd har tjänat mest (ca. 51%, mestadels under 90-talet och tidiga 2000-talet), följt av Vinyl (ca. 18%, mestadels under 70-och-80-talen, med en liten återkomst i 2020-talet), sedan Kassett (ca. 17%, mestadels under 80-och-90-talen), Streaming (ca. 8%, från 2010-talet och framåt) och sist Nedladdning (ca. 5%, mestadels under 2000-talet). Endast linjen som representerar Vinyl är fokuserad.'
         },
 
@@ -108,28 +111,39 @@
         series: [{
             name: "CD",
             color: "#464646",
-            dashStyle: 'Dash'
-          },
-          {
-            name: "Cassette",
+            dashStyle: 'Dash',
+            accessibility: {
+              description: 'Det här är inkomsten för CD mellan 1973 och 2021.'
+            }
+          },{
+            name: "Kassett",
             color: "#464646",
-            dashStyle: 'Dash'
-          },
-          {
-            name: "Download",
+            dashStyle: 'Dash',
+            accessibility: {
+              description: 'Det här är inkomsten för kassetter mellan 1973 och 2021.'
+            }
+          },{
+            name: "Nedladdning",
             color: "#464646",
-            dashStyle: 'Dash'
-          },
-          {
+            dashStyle: 'Dash',
+            accessibility: {
+              description: 'Det här är inkomsten för nedladdningar mellan 1973 och 2021.'
+            }
+          },{
             name: "Vinyl",
             lineWidth: 3,
             color: "#7d3600",
             zIndex: 1,
-          },
-          {
+            accessibility: {
+              description: 'Det här är inkomsten för vinyler mellan 1973 och 2021.'
+            }
+          },{
             name: "Streaming",
             color: "#464646",
-            dashStyle: 'Dash'
+            dashStyle: 'Dash',
+            accessibility: {
+              description: 'Det här är inkomsten för streaming mellan 1973 och 2021.'
+            }
         }]
       });
     </script>

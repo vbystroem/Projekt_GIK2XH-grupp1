@@ -13,9 +13,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:regular,italic,bold,bolditalic|Space+Grotesk:semibold,regular,italic,medium,mediumitalic,bold,bolditalic|Roboto+Mono:regular,italic,bold,bolditalic">
   </head>
   <body>
+    <a class="skiplink color-cd" href="#arttitle">» Skip to content</a>
     <nav class="bckfwd">
       <a href="cassette.html" aria-label="Back">
-        <div class="color-cd arrow">&#60</div>
+        <div class="color-cd arrow">&#60;</div>
       </a>
 
       <a href="landing.html" aria-label="Start">
@@ -23,11 +24,11 @@
       </a>
 
       <a href="download.html" aria-label="Forward">
-        <div class="color-cd arrow">&#62</div>
+        <div class="color-cd arrow">&#62;</div>
       </a>
     </nav>
     <main>
-      <div class="topinfo-cd">
+      <section class="topinfo-cd">
         <div class="chart_drawing">
           <img class="svg" src="../images/sameheight-cd.svg" alt="En illustration av ett CD-fodral">
           <h1>CD</h1>
@@ -42,7 +43,7 @@
         <p class="emptyline"><br></p>
         <h2><b>Mest sålda album <br> under formatets starkaste år (2000):</b><br>NSYNC – No Strings Attached <a href="https://en.wikipedia.org/wiki/List_of_Billboard_200_number-one_albums_of_2000" target="_blank"><br><u>(Wikipedia, "List of Billboard 200 number-one albums of 2000")</u></a></h2>
         <a role="button" class="scrollink" id="doublearrow" href="#arttitle">»</a>
-      </div>
+      </section>
       <div class="divider"><hr></div>
       <div class="arrticle">
         <article class="article">
@@ -60,7 +61,7 @@
             <hr>
             <p><b>Den genomsnittliga låten</b> såg en kraftig ökning i ljudnivå under 90-talet. Detta kan bero på att digital ljudkompression blev mer och mer mainstream och tillät producenter att mixa låtar högre utan uppoffring. <br>&emsp;Kyle Devine, professor på Institutt for musikkvitenskap vid Universitetet i Oslo argumenterar för detta, då tidigare fysiska begränsningar på ljudnivåer i analoga format (såsom skarorna i vinylskivor, som behöver ta upp mer plats på skivan ju högre ljudnivån stiger,) upphörde att existera i digitalt format. <br>&emsp;Detta skulle då leda till att producenter ökade ljudnivån överlag, i stor del för att de nu kunde.</p>
             <p class="emptyline"><br></p>
-            <p>Sedan 2016 har ljudnivån <em>minskat något</em>, vilket kan bero på en rad olika faktorer → <a class="to-streaming" href="streaming.html" target="_top">Hur formatet "Streaming" har påverkat musiken</a></p>
+            <p>Sedan 2016 har ljudnivån <em>minskat något</em>, vilket kan bero på en rad olika faktorer → <a class="to-streaming" href="streaming.html" target="_top">Hur har streamingtjänster påverkat våra lyssnarvanor?</a></p>
             </div>
           </div>
         </article>
@@ -137,23 +138,38 @@
             name: 'CD',
             color: "#890050",
             lineWidth: 3,
-            zIndex: 1
+            zIndex: 1,
+            accessibility: {
+              description: 'Det här är inkomsten för CD mellan 1973 och 2021.'
+            }
           }, {
-            name: 'Cassette',
+            name: 'Kassett',
             color: "#464646",
             dashStyle: 'Dash',
+            accessibility: {
+              description: 'Det här är inkomsten för kassetter mellan 1973 och 2021.'
+            }
           }, {
-            name: 'Download',
+            name: 'Nedladdning',
             color: "#464646",
             dashStyle: 'Dash',
+            accessibility: {
+              description: 'Det här är inkomsten för nedladdningar mellan 1973 och 2021.'
+            }
           }, {
             name: 'Vinyl',
             color: "#464646",
             dashStyle: 'Dash',
+            accessibility: {
+              description: 'Det här är inkomsten för vinyler mellan 1973 och 2021.'
+            }
           }, {
             name: 'Streaming',
             color: "#464646",
             dashStyle: 'Dash',
+            accessibility: {
+              description: 'Det här är inkomsten för streaming mellan 1973 och 2021.'
+            }
         }]
       });
 
