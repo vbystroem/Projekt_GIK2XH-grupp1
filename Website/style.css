@@ -310,6 +310,13 @@ hr {
     margin: 4rem 0;
 }
 
+.bigchart-s {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    margin: 0 0 15vh 0;
+}
+
 #container-mashup,
 #container-chart-2 {
     width: 40vw;
@@ -318,6 +325,7 @@ hr {
 
 .buttons {
     align-self: center;
+    justify-self: center;
 }
 
 .buttons-graph {
@@ -327,16 +335,18 @@ hr {
 
 .artbody {
     display: flex;
-    flex-direction: row-reverse;
     justify-content: center;
-    align-items: top; /* align-items: start; ?? */
     width: 70vw;
 }
 
-.artbody p{
+.artbody p {
     margin-right: 5vw;
     font-family: 'IBM Plex Mono';
     width: 50vw;
+}
+
+.latter_art {
+    align-self: end;
 }
 
 .article p {
@@ -629,7 +639,8 @@ cite a:hover {
     }
 
     .artbody {
-        display: block;
+        display: flex;
+        flex-direction: column-reverse;
         width: 100%;
     }
     
@@ -667,6 +678,13 @@ cite a:hover {
         width: 100%;
         font-family: 'IBM Plex Mono';
         margin-top: 1rem;
+    }
+
+    .bigchart-s {
+        display: flex;
+        flex-direction: column;
+        justify-content: right;
+        margin: 4rem 0;
     }
     
     .cite-c a {
@@ -794,6 +812,13 @@ cite a:hover {
     .article hr {
         width: 10vw;
         margin: 1rem 0;
+    }
+
+    .bigchart-s {
+        display: flex;
+        flex-direction: column;
+        justify-content: right;
+        margin: 4rem 0;
     }
     
     .artfig blockquote {
