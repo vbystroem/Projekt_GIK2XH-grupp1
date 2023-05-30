@@ -339,13 +339,26 @@ hr {
     width: 70vw;
 }
 
+.artbody-s {
+    display: flex;
+    justify-content: center;
+    width: 70vw;
+}
+
 .artbody p {
     margin-right: 5vw;
     font-family: 'IBM Plex Mono';
     width: 50vw;
 }
 
+.artbody-s p {
+    margin-right: 5vw;
+    font-family: 'IBM Plex Mono';
+    width: 50vw;
+}
+
 .latter_art {
+    width: inherit;
     align-self: end;
 }
 
@@ -643,8 +656,21 @@ cite a:hover {
         flex-direction: column-reverse;
         width: 100%;
     }
+
+    .artbody-s {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
     
     .artbody p {
+        margin-right: 5vw;
+        font-family: 'IBM Plex Mono';
+        font-weight: 300;
+        width: 100%;
+    }
+
+    .artbody-s p {
         margin-right: 5vw;
         font-family: 'IBM Plex Mono';
         font-weight: 300;
@@ -793,8 +819,20 @@ cite a:hover {
         display: block;
         width: 50vw;
     }
+
+    .artbody-s {
+        display: block;
+        width: 50vw;
+    }
     
     .artbody p {
+        margin-right: 5vw;
+        font-family: 'IBM Plex Mono';
+        font-weight: 300;
+        width: 100%;
+    }
+
+    .artbody-s p {
         margin-right: 5vw;
         font-family: 'IBM Plex Mono';
         font-weight: 300;
@@ -904,6 +942,9 @@ cite a:hover {
         width: 54ch;
     }
     .artbody {
+        width: 100%;
+    }
+    .artbody-s {
         width: 100%;
     }
 }
